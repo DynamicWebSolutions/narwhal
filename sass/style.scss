@@ -1,0 +1,38 @@
+/*
+ Theme Name:   Land of Yogg
+ Description:  Crafted for the fine denizens of the Land of Yogg.
+ Author:       Dynamic Web Solutions
+ Author URI:   http://dynamicwebsolutions.com
+ Template:     genesis
+*/
+
+//@import url("../genesis/style.css");
+@import "susy";
+@import "compass/reset";
+@import "compass/css3/box-sizing";
+@import "compass/css3/font-face";
+@import "compass/typography";
+@import "compass/utilities";
+@import "partials/_variables";
+@import "partials/_header";
+
+* {
+	@include box-sizing();
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.4rem;
+	background: $white;
+}
+
+h2.site-description {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
