@@ -1,0 +1,13 @@
+.formaga {
+	clear:both;
+	background:$tertiary;
+	padding:3rem;	
+	@include container;
+	@include pie-clearfix;
+
+	> div {
+		text-align:center;
+		@include span(2);
+	}
+
+}

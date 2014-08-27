@@ -1,0 +1,14 @@
+.vargangrepp {
+		clear:both;
+		background:$primary;
+		color: $white;
+		text-align:center;
+		padding:3rem;
+		@include container;
+		@include pie-clearfix;
+
+		p {
+			margin:0 auto;
+			width:75%;
+		}
+}

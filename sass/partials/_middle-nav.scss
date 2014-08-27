@@ -1,0 +1,25 @@
+.middle-nav {
+	clear:both;
+	height:4rem;
+	padding:1.5rem;	
+	@include container;
+	@include pie-clearfix;
+
+	ul {
+		@include pie-clearfix;
+
+		li {
+			text-align:center;
+			border-right: 1px solid $tertiary;
+			@include span(3);
+
+			&:last-child {		
+				border-right:none;
+			}		
+		}		
+	}
+
+
+
+
+}

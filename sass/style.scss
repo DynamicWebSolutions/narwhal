@@ -11,10 +11,20 @@
 @import "compass/reset";
 @import "compass/css3/box-sizing";
 @import "compass/css3/font-face";
+@import "compass/utilities/general/clearfix";
 @import "compass/typography";
 @import "compass/utilities";
 @import "partials/_variables";
 @import "partials/_header";
+@import "partials/_middle-nav";
+@import "partials/_home-article";
+@import "partials/_formaga";
+@import "partials/_vargangrepp";
+@import "partials/_footer";
+@import "partials/_banner";
+@import "partials/_work-archive";
+
+
 
 * {
 	@include box-sizing();
@@ -27,6 +37,12 @@ html {
 body {
 	font-size: 1.4rem;
 	background: $white;
+}
+
+div.site-container {
+	display:block;
+	margin:0 auto;
+	@include container(80em);	
 }
 
 h2.site-description {

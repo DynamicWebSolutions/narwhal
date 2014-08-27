@@ -1,0 +1,31 @@
+footer {
+	text-align:center;
+	background:$black;
+	color:$white;
+	@include container;
+	@include pie-clearfix;
+
+	a {
+		color:$white;
+	}
+
+	nav {
+		width:75%;
+		margin:0 auto;
+		padding:2rem 0;
+		@include pie-clearfix;
+
+		ul {
+
+			li {
+				padding:0 1rem;
+				display:inline-block;
+			}			
+		}
+
+		&.social-nav {
+			border-top: 1px solid $white;
+			border-bottom: 1px solid $white;
+		}		
+	}
+}

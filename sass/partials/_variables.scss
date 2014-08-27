@@ -3,10 +3,21 @@
  **
 **/ 
 
-//COLORS
+//Colors
 $black: rgba(65,64,66,1);
-$green: rgba(0,140,159,1);
-$lightGreen: rgba(232,244,246,1);
-$yellow: rgba(245,237,96,1);
-$beige: rgba(240,234,216,1);
+$primary: rgba(0,140,159,1);        // Green
+$overlay: rgba(0,140,159,0.05);     // Low Opacity Green
+$lightPrimary: rgba(232,244,246,1); // Light Green
+$secondary: rgba(245,237,96,1);     // Yellow
+$tertiary: rgba(240,234,216,1);     // Beige
 $white: rgba(255,255,255,1);
+
+
+//Layout
+$susy: (
+  columns: 12,  // The number of columns in your grid
+  gutters: 1/4, // The size of a gutter in relation to a single column
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+);

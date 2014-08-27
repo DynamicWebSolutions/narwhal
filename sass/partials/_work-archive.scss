@@ -1,0 +1,14 @@
+.post-type-archive-yogg_work {
+
+	main {
+		background:$tertiary;
+		padding:1rem;
+		@include container;
+		@include pie-clearfix;
+	}
+
+	article {
+		@include span(3);
+	}
+	
+}
