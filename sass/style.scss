@@ -9,8 +9,7 @@
 //@import url("../genesis/style.css");
 @import "susy";
 @import "compass/reset";
-@import "compass/css3/box-sizing";
-@import "compass/css3/font-face";
+@import "compass/css3";
 @import "compass/utilities/general/clearfix";
 @import "compass/typography";
 @import "compass/utilities";
@@ -23,6 +22,8 @@
 @import "partials/_footer";
 @import "partials/_banner";
 @import "partials/_work-archive";
+@import "partials/_slider";
+
 
 
 
@@ -42,6 +43,7 @@ body {
 div.site-container {
 	display:block;
 	margin:0 auto;
+	position: relative;
 	@include container(80em);	
 }
 
@@ -51,4 +53,5 @@ h2.site-description {
 
 a {
 	text-decoration: none;
+	color:$primary;
 }

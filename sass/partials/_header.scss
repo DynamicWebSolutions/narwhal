@@ -3,16 +3,76 @@ header.site-header {
 	background: $primary;
 	color:$white;
 	padding:1.5rem;
+	position: relative;
+	z-index:2;
 
 	a {
 		color:$white;
 	}
+
+	.title-area {
+		width:20%;
+		float:left;
+	}
+
+	#header-meta {
+		float:right;
+
+		span {
+			display: inline-block;
+		}
+
+		#hamburger {
+		  position: relative;
+		  padding-left: 1.25rem;	
+		  width: 2.5rem;
+		  height:1.3rem;
+		  top:-0.5rem;
+		  cursor: pointer;
+
+
+		  &:before {
+			  content: "";
+			  position: absolute;
+			  top: 0.25rem;
+			  left: 0;
+			  width: 2.5rem;
+			  height: 0.370rem;
+			  border-top: 1.125rem double $white;
+			  border-bottom: 0.4rem solid $white;	  	
+		  }
+		}
+	}
 }
 
 nav.top-nav {
+
+	@include keyframes(open) {
+	    from { @include transform(translate(0, -200px)); }
+	    to { @include transform(translate(0, 0)); }
+	}
+
+	@include keyframes(close) {
+	    from { opacity:1; }
+	    to { opacity:0; }
+	}
+
 	background:$lightPrimary;
 	padding:1em 1em 0em 1em;
+	z-index: 1;
+	position: absolute;
+	width:100%;
+	@include translate(0, -200px);
+	@include container;
 	@include pie-clearfix();
+
+	&.open {
+    @include animation(open 0.5s ease-in-out);
+	}
+
+	&.opened {
+		@include transform(translate(0, 0));
+	}
 
 	form {
 		background: $overlay;

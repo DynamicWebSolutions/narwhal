@@ -1,5 +1,9 @@
 <?php
 
+
+
+add_image_size('archive-grid', 200, 200, true);
+
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 add_theme_support( 'post-thumbnails' ); 
@@ -11,7 +15,18 @@ add_theme_support ( 'genesis-menus', array (
 ));
 
 
-add_image_size('archive-grid', 200, 200, true);
+add_action('wp_enqueue_scripts', 'yogg_encantations');
+function yogg_encantations() {
+    wp_register_script('yogg-encantations', get_stylesheet_directory_uri() . '/js/encantations.js', 'jquery', 1.0, true);
+    wp_enqueue_script('yogg-encantations');
+}
+
+
+add_action('genesis_before', 'yogg_sitewide_mods');
+function yogg_sitewide_mods() {
+    //* Remove the site description
+    remove_action( 'genesis_site_description', 'genesis_seo_site_description');    
+}
 
 
 add_action('genesis_before_loop', 'yogg_before_loop');
@@ -37,9 +52,19 @@ function yogg_widget_init() {
     ) );	
 
    genesis_register_sidebar( array(          
-        'name' => __( 'Home After Content', 'genesis' ),
-        'id' => 'home_after_content',
-        'description' => __( 'Your Second Most Awesome Stuff', 'genesis' ),
+        'name' => __( 'Home Vargangrepp', 'genesis' ),
+        'id' => 'home_vargangrepp',
+        'description' => __( 'Homepage monster', 'genesis' ),
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>',
+    ) );	   
+
+   genesis_register_sidebar( array(          
+        'name' => __( 'Home Formaga', 'genesis' ),
+        'id' => 'home_formaga',
+        'description' => __( 'Clever Content', 'genesis' ),
         'before_widget' => '<div>',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widgettitle">',
@@ -68,6 +93,18 @@ function yogg_widget_init() {
 }
 
 
+add_action('genesis_header', 'yogg_top_menu_toggle', 11);
+function yogg_top_menu_toggle() {
+    echo '
+        <span id="header-meta">
+            <span itemprop="telephone">(804) 888-6380</span>
+            <span itemprop="email">hello@landofyogg.com</span>
+            <span id="hamburger"></span>
+        </span>';
+}
+
+
+
 add_action('genesis_header', 'yogg_top_menu', 20);
 function yogg_top_menu() {
 	wp_nav_menu( array( 
@@ -78,15 +115,15 @@ function yogg_top_menu() {
 }
 
 
-add_filter('wp_nav_menu', 'yogg_test', null, 2);
-function yogg_test($html, $args) {
+add_filter('wp_nav_menu', 'yogg_header_form', null, 2);
+function yogg_header_form($html, $args) {
 	if('header' === $args->theme_location) {
 		$menu = $html;
 
 		$html = sprintf('<nav class="%s"> %s %s</nav>', 
-				$args->container_class, 
-				do_shortcode('[contact-form-7 id="84" title="Telegraph Service"]'),
-				$menu
+    		$args->container_class, 
+    		do_shortcode('[contact-form-7 id="84" title="Telegraph Service"]'),
+    		$menu
 		);
 	}
 	return $html;
@@ -124,23 +161,6 @@ function yogg_footer_widgets() {
 
 }
 
-/*
-add_filter('genesis_post_info','yogg_post_info');
-function yogg_post_info($info) {
-	if(is_archive()) return false;
-
-	return $info;
-}
-
-
-add_filter('genesis_post_meta','yogg_post_meta');
-function yogg_post_meta($meta) {
-	if(is_archive()) return false;
-
-	return $meta;
-}
-
-*/
 
 
 

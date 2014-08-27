@@ -1,0 +1,67 @@
+div.flexslider-hg-style-yogg {
+
+	border:none;
+	@include box-shadow(none);
+
+	.slide-data {
+		color:$white;
+		top:50%;
+		text-align:center;
+		background:none;
+	}
+
+	.flex-direction-nav {
+		li {
+			position: absolute;
+			bottom:20px;
+			right:10px;
+
+			&:first-child {
+				left:10px;
+			}
+
+			a {
+				background-image:none;
+				background:$white;
+				text-indent: 0;
+				text-align:center;
+				font-size:2rem;
+				padding:0.5rem;
+				@include border-radius(2rem);
+
+			}
+
+			.flex-prev,
+			.flex-next {
+				opacity:1;
+			}
+
+			.flex-prev {
+				left:10px;
+			}
+
+			.flex-next {
+				right:10px;
+			}
+		}
+	}
+
+	.flex-control-nav {
+		bottom:10px;
+
+		a {
+			background:none;
+			border:2px solid $white;
+			@include box-shadow(none);
+
+			&.flex-active {
+				background:$white;
+			}
+
+			&:hover {
+				background:$white;
+				@include box-shadow(inset, 0,0,3px,0, $white );
+			}
+		}
+	}
+}
