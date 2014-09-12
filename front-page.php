@@ -1,16 +1,9 @@
 <?php
 
-
-
 add_action('genesis_after_header', 'yogg_homepage_after_header');
 function yogg_homepage_after_header() {
     if ( is_front_page() ) {
-    	echo do_shortcode('[flexslider slug="homepage"]');
-
-	    genesis_widget_area ('home_slider', array(
-	        'before' => '<section>',
-	        'after' => '</section>'
-      ));    	
+    	echo do_shortcode('[flexslider slug="homepage"]');  	
     }
 }
 
@@ -44,25 +37,28 @@ remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action('genesis_before_loop', 'yogg_homepage_vargangrepp');
 function yogg_homepage_vargangrepp() {
 	genesis_widget_area ('home_vargangrepp', array(
-	    'before' => '<section>',
-	    'after' => '</section>'
+    'before' => '<section class="vargangrepp">',
+    'after' => '</section>'
 	));  
 }
 
 
 add_action('genesis_after_content_sidebar_wrap', 'yogg_homepage_after_content_sidebar_wrap');
 function yogg_homepage_after_content_sidebar_wrap() {
-  genesis_widget_area ('home_formaga', array(
-      'before' => '<section class="formaga">',
-      'after' => '</section>'
-  ));    	
-}
+	echo '<section id="formaga">';
+
+	  genesis_widget_area ('home_formaga_top', array(
+      'before' => '<div id="formaga-top">',
+      'after' => '</div>'
+	  ));  
+
+	  genesis_widget_area ('home_formaga_bottom', array(
+      'before' => '<div id="formaga-bottom">',
+      'after' => '</div>'
+	  ));  
 
 
-add_filter('genesis_attr_content', 'yogg_homepage_main_content_filter');
-function yogg_homepage_main_content_filter($meta) {
-	$meta['class'] = $meta['class'] . ' vargangrepp ';
-	return $meta;
+  echo '</section>'; 	
 }
 
 

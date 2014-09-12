@@ -1,13 +1,37 @@
-.formaga {
+#formaga {
 	clear:both;
 	background:$tertiary;
-	padding:3rem;	
-	@include container;
+	padding:3rem 0;
 	@include pie-clearfix;
 
-	> div {
-		text-align:center;
-		@include span(2);
+	#formaga-top {
+		@include container(10);	
+		@include pie-clearfix;
+
+		>div {
+			text-align:center;
+			@include span(2 of 10);
+		}
 	}
 
+	#formaga-bottom {
+		@include pie-clearfix;
+
+		>div {
+			text-align:center;
+			@include span(isolate 8 at 3);
+		}		
+	}
+}
+
+.home #formaga {
+	h2 {
+		@extend .epsilon;
+	}
+
+	#formaga-bottom h3 {
+		color: $primary;
+		padding:2rem 0;
+		@extend .beta;
+	}
 }

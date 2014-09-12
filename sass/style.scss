@@ -11,20 +11,17 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
-@import "compass/typography";
 @import "compass/utilities";
+@import "partials/_fonts";
 @import "partials/_variables";
+@import "partials/_typeplate";
 @import "partials/_header";
 @import "partials/_middle-nav";
-@import "partials/_home-article";
 @import "partials/_formaga";
 @import "partials/_vargangrepp";
 @import "partials/_footer";
-@import "partials/_banner";
 @import "partials/_work-archive";
 @import "partials/_slider";
-
-
 
 
 * {
@@ -36,6 +33,9 @@ html {
 }
 
 body {
+	font-family: $font-normal;
+	font-style: normal;
+	font-weight: normal;
 	font-size: 1.4rem;
 	background: $white;
 }

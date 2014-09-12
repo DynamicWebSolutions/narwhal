@@ -1,0 +1,70 @@
+@include font-face('Quiroga Serif', 
+	font-files(
+		'quirogaserifpro_regular_macroman/QuirogaSerifPro-webfont.woff',
+		'quirogaserifpro_regular_macroman/QuirogaSerifPro-webfont.ttf',
+		'quirogaserifpro_regular_macroman/QuirogaSerifPro-webfont.svg'
+	),
+		'quirogaserifpro_regular_macroman/QuirogaSerifPro-webfont.eot',
+		'normal',
+		'normal'
+);
+
+
+@include font-face('Quiroga Serif DemiBold', 
+	font-files(
+		'quirogaserifpro_demibold_macroman/QuirogaSerifPro-DemiBold-webfont.woff',
+		'quirogaserifpro_demibold_macroman/QuirogaSerifPro-DemiBold-webfont.ttf',
+		'quirogaserifpro_demibold_macroman/QuirogaSerifPro-DemiBold-webfont.svg'
+	),
+		'quirogaserifpro_demibold_macroman/QuirogaSerifPro-DemiBold-webfont.eot',
+		'demi-bold',
+		'normal'
+);
+
+
+@include font-face('Quiroga Serif Bold', 
+	font-files(
+		'quirogaserifpro_bold_macroman/QuirogaSerifPro-Bold-webfont.woff',
+		'quirogaserifpro_bold_macroman/QuirogaSerifPro-Bold-webfont.ttf',
+		'quirogaserifpro_bold_macroman/QuirogaSerifPro-Bold-webfont.svg'
+	),
+		'quirogaserifpro_bold_macroman/QuirogaSerifPro-Bold-webfont.eot',
+		'bold',
+		'normal'
+);
+
+
+@include font-face('Quiroga Serif Italic', 
+	font-files(
+		'quirogaserifpro_italic_macroman/QuirogaSerifPro-Italic-webfont.woff',
+		'quirogaserifpro_italic_macroman/QuirogaSerifPro-Italic-webfont.ttf',
+		'quirogaserifpro_italic_macroman/QuirogaSerifPro-Italic-webfont.svg'
+	),
+		'quirogaserifpro_italic_macroman/QuirogaSerifPro-Italic-webfont.eot',
+		'normal',
+		'italic'
+);
+
+
+@include font-face('Quiroga Serif DemiBold Italic', 
+	font-files(
+		'quirogaserifpro_demibolditalic_macroman/QuirogaSerifPro-DemiBoldItalic-webfont.woff',
+		'quirogaserifpro_demibolditalic_macroman/QuirogaSerifPro-DemiBoldItalic-webfont.ttf',
+		'quirogaserifpro_demibolditalic_macroman/QuirogaSerifPro-DemiBoldItalic-webfont.svg'
+	),
+		'quirogaserifpro_demibolditalic_macroman/QuirogaSerifPro-DemiBoldItalic-webfont.eot',
+		'demi-bold',
+		'italic'
+);
+
+
+@include font-face('Quiroga Serif Bold Italic', 
+	font-files(
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.woff',
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.ttf',
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.svg'
+	),
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.eot',
+		'bold',
+		'italic'
+);

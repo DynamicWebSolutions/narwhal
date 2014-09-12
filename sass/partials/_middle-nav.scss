@@ -2,6 +2,7 @@
 	clear:both;
 	height:4rem;
 	padding:1.5rem;	
+	line-height: 1;
 	@include container;
 	@include pie-clearfix;
 
@@ -18,8 +19,4 @@
 			}		
 		}		
 	}
-
-
-
-
 }

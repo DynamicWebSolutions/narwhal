@@ -1,95 +1,93 @@
 <?php
 
 
+/**
+ ** Land of yogg colonies
+ **
+ **
+**/
+include_once(dirname(__FILE__) . '/includes/widgets.php');
+include_once(dirname(__FILE__) . '/includes/meta_boxes.php');
 
-add_image_size('archive-grid', 200, 200, true);
 
-//* Add HTML5 markup structure
+
+/**
+ ** Genesis mods
+ **
+ **
+**/ 
+add_action('after_setup_theme', 'yogg_remove_layouts');
+function yogg_remove_layouts() {
+
+    // One layout to rule them all.
+    genesis_unregister_layout( 'content-sidebar' );
+    genesis_unregister_layout( 'sidebar-content' );
+    genesis_unregister_layout( 'content-sidebar-sidebar' );
+    genesis_unregister_layout( 'sidebar-sidebar-content' );
+    genesis_unregister_layout( 'sidebar-content-sidebar' ); 
+}
+
+
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 add_theme_support( 'post-thumbnails' ); 
 add_theme_support ( 'genesis-menus', array ( 
-	'header' => 'Header Navigation Menu',
-	'middle' => 'Middle Navigation Menu',
-	'footer' => 'Footer Navigation Menu', 
-	'social' => 'Social Navigation Menu' 
+    'header' => 'Header Navigation Menu',
+    'middle' => 'Middle Navigation Menu',
+    'footer' => 'Footer Navigation Menu', 
+    'social' => 'Social Navigation Menu' 
 ));
 
 
+
+/**
+ ** Yogg custom iamge sizes
+ **
+ **
+**/ 
+add_image_size('archive-grid', 200, 200, true);
+add_image_size('page-top', 1000, 300, true);
+
+
+
+/**
+ ** Yogg encantations, otherwise known as javascript
+ **
+ **
+**/ 
 add_action('wp_enqueue_scripts', 'yogg_encantations');
 function yogg_encantations() {
-    wp_register_script('yogg-encantations', get_stylesheet_directory_uri() . '/js/encantations.js', 'jquery', 1.0, true);
+
+    wp_register_script('yogg-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.js', '', '2.8.3', false);
+    wp_enqueue_script('yogg-modernizr');
+
+    wp_register_script('yogg-encantations', get_stylesheet_directory_uri() . '/js/encantations.js', 'jquery', '1.0', true);
     wp_enqueue_script('yogg-encantations');
 }
 
 
+add_action('admin_enqueue_scripts', 'yogg_admin_js');
+function yogg_admin_js() {
+    global $typenow;
+
+    if('page' === $typenow) :
+
+        wp_enqueue_media();
+        wp_register_script('yogg-admin', get_stylesheet_directory_uri() . '/js/admin/admin.js', 'jquery', '1.0', true);
+        wp_enqueue_script('yogg-admin');
+    endif;
+}
+
+
+
+
+/**
+ ** Yogg Header Mods
+ **
+ **
+**/ 
 add_action('genesis_before', 'yogg_sitewide_mods');
 function yogg_sitewide_mods() {
-    //* Remove the site description
     remove_action( 'genesis_site_description', 'genesis_seo_site_description');    
-}
-
-
-add_action('genesis_before_loop', 'yogg_before_loop');
-function yogg_before_loop() {
-	if(!is_singular()) {
-		remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
-	}
-}
-
-
-/** Widget Init **/
-add_action( 'widgets_init', 'yogg_widget_init' );
-function yogg_widget_init() {
-   genesis_register_sidebar( array(          
-        'name' => __( 'Home Slider', 'genesis' ),
-        'id' => 'home_slider',
-        'description' => __( 'Your Most Awesome Stuff', 'genesis' ),
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widgettitle">',
-        'after_title' => '</h3>',
-    ) );	
-
-   genesis_register_sidebar( array(          
-        'name' => __( 'Home Vargangrepp', 'genesis' ),
-        'id' => 'home_vargangrepp',
-        'description' => __( 'Homepage monster', 'genesis' ),
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widgettitle">',
-        'after_title' => '</h3>',
-    ) );	   
-
-   genesis_register_sidebar( array(          
-        'name' => __( 'Home Formaga', 'genesis' ),
-        'id' => 'home_formaga',
-        'description' => __( 'Clever Content', 'genesis' ),
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widgettitle">',
-        'after_title' => '</h3>',
-    ) );	
-
-   genesis_register_sidebar( array(          
-        'name' => __( 'Footer Left', 'genesis' ),
-        'id' => 'footer_left',
-        'description' => __( 'Stuff to the left of me.', 'genesis' ),
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widgettitle">',
-        'after_title' => '</h3>',
-    ) );	 
-
-   genesis_register_sidebar( array(          
-        'name' => __( 'Footer Right', 'genesis' ),
-        'id' => 'footer_right',
-        'description' => __( 'Stuff to the right of me.', 'genesis' ),
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widgettitle">',
-        'after_title' => '</h3>',
-    ) );	           
 }
 
 
@@ -98,11 +96,10 @@ function yogg_top_menu_toggle() {
     echo '
         <span id="header-meta">
             <span itemprop="telephone">(804) 888-6380</span>
-            <span itemprop="email">hello@landofyogg.com</span>
+            <span itemprop="email"><a href="mailto:hello@landofyogg.com">hello@landofyogg.com</a></span>
             <span id="hamburger"></span>
         </span>';
 }
-
 
 
 add_action('genesis_header', 'yogg_top_menu', 20);
@@ -110,57 +107,83 @@ function yogg_top_menu() {
 	wp_nav_menu( array( 
 		'theme_location' => 'header', 
 		'container' => null,
-		'container_class' => 'top-nav'
+		'container_class' => 'top-nav closed'
 	) );
 }
 
 
 add_filter('wp_nav_menu', 'yogg_header_form', null, 2);
 function yogg_header_form($html, $args) {
-	if('header' === $args->theme_location) {
-		$menu = $html;
+    if('header' === $args->theme_location) {
+        $menu = $html;
 
-		$html = sprintf('<nav class="%s"> %s %s</nav>', 
-    		$args->container_class, 
-    		do_shortcode('[contact-form-7 id="84" title="Telegraph Service"]'),
-    		$menu
-		);
-	}
-	return $html;
+        $html = sprintf('<nav class="%s"> %s %s</nav>', 
+            $args->container_class, 
+            do_shortcode('[contact-form-7 id="84" title="Telegraph Service"]'),
+            $menu
+        );
+    }
+    return $html;
 }
 
 
+
+/**
+ ** Yogg Article Mods
+ **
+ **
+**/ 
+add_action('genesis_before_loop', 'yogg_before_loop');
+function yogg_before_loop() {
+    if(!is_singular()) {
+        remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+        remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+    }
+}
+
+
+
+/**
+ ** Yogg Footer Mods
+ **
+ **
+**/ 
 add_action('genesis_footer', 'yogg_footer_menu');
 function yogg_footer_menu() {
-	wp_nav_menu( array( 
-		'theme_location' => 'footer', 
-		'container' => 'nav',
-		'container_class' => 'footer-nav' 
-	) );
+    wp_nav_menu( array( 
+        'theme_location' => 'footer', 
+        'container' => 'nav',
+        'container_class' => 'footer-nav' 
+    ) );
 
-	wp_nav_menu( array( 
-		'theme_location' => 'social', 
-		'container' => 'nav',
-		'container_class' => 'social-nav' 
-	) );
+    wp_nav_menu( array( 
+        'theme_location' => 'social', 
+        'container' => 'nav',
+        'container_class' => 'social-nav' 
+    ) );
 }
 
 
 add_action('genesis_footer', 'yogg_footer_widgets');
 function yogg_footer_widgets() {
 
-	genesis_widget_area ('footer_left', array(
-	    'before' => '<div>',
-	    'after' => '</div>'
-	));  
+    genesis_widget_area ('footer_left', array(
+        'before' => '<div>',
+        'after' => '</div>'
+    ));  
 
-	genesis_widget_area ('footer_right', array(
-	    'before' => '<div>',
-	    'after' => '</div>'
-	));  
-
+    genesis_widget_area ('footer_right', array(
+        'before' => '<div>',
+        'after' => '</div>'
+    ));  
 }
 
 
-
-
+add_filter('genesis_footer_creds_text', 'yogg_footer_creds_text');
+function yogg_footer_creds_text( $creds ) {
+    $year = date("Y");
+    $url = get_bloginfo('url');
+    $creds = '<span class="creds">117 North 20th Street / Richmond, VA 23223</span>';
+    $creds .= "<span class='creds'>&copy; {$year} <a href='{$url}' title='Land of yogg'>yogg</a> All rights reserved";
+    return $creds;
+}
