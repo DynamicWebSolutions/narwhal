@@ -6,10 +6,13 @@
 // Font Stacks
 $font-normal:'Quiroga Serif', "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 $font-bold:'Quiroga Serif Bold', "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+$font-sanserif-normal: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
 // Colors
 $black: rgba(65,64,66,1);
+$lightGray: rgba(246,246,246,1);    // Light Gray
+$gray: rgba(147,149,152,1);         // Gray
 $primary: rgba(0,140,159,1);        // Green
 $overlay: rgba(0,140,159,0.05);     // Low Opacity Green
 $lightPrimary: rgba(232,244,246,1); // Light Green
@@ -23,8 +26,9 @@ $susy: (
   columns: 12,  // The number of columns in your grid
   gutters: 1/4, // The size of a gutter in relation to a single column
   math: fluid,
+  global-box-sizing: content-box,
   output: float,
-  gutter-position: inside,
+  gutter-position: split,
 );
 
 // ===================================================

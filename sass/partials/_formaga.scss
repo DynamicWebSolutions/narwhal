@@ -1,3 +1,22 @@
+#formaga-header {
+	position: relative;
+
+	img {
+		width:100%;
+		height:auto;
+	}
+
+	h2 {
+		text-align:center;
+		position:absolute;
+		top:45%;
+		width:100%;
+		color:$white;
+	}
+
+}
+
+
 #formaga {
 	clear:both;
 	background:$tertiary;
@@ -23,6 +42,8 @@
 		}		
 	}
 }
+
+
 
 .home #formaga {
 	h2 {

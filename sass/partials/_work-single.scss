@@ -1,0 +1,17 @@
+.single-yogg_work {
+
+	article {
+		@include container;
+
+		.gallery {
+			@include span(8);
+		}
+
+		.entry-content {
+			background:$tertiary;
+			padding:2rem;
+			@include span(4 last);
+		}
+	}
+
+}

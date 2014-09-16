@@ -1,0 +1,54 @@
+.blog {
+	font-family: $font-sanserif-normal;
+
+	a {
+		color: $primary;
+	}
+
+	section {
+		padding:1rem 3rem;
+		text-align:center;
+	}
+
+
+	main {
+		@include nested(12);
+
+		article {
+			background:$white;
+			margin-bottom:3rem;
+			@include span(5 first);
+			@include push(1);
+
+			&.genesis-grid-even {
+				@include push(0);
+			}
+
+			h2 {
+				@extend .gamma;
+			}
+
+			.entry-image {
+				width:100%;
+				height:auto;
+			}
+
+			.entry-title,
+			.entry-content {
+				padding:0.5rem 1rem;
+			}
+
+
+			footer {
+				padding:0.5rem 1rem;
+				text-align: left;
+				color: $gray;
+				background: $lightGray;
+
+				.entry-categories {
+					display:block;
+				}
+			}
+		}		
+	}
+}

@@ -1,0 +1,25 @@
+.page {
+
+	article {
+
+		h1 {
+			text-transform: uppercase;
+			@extend .gamma;
+		}
+
+		.entry-content {
+			padding:3em 12em;
+		}
+	}
+
+	&.page-id-15,
+	&.parent-pageid-15 {
+
+		.middle-nav {
+			li {
+				@include span(2 of 10);
+
+			}
+		}
+	}
+}

@@ -1,5 +1,8 @@
 <?php
 
+add_filter( 'post_class', 'genesis_grid_loop_post_class' );
+
+
 add_action('genesis_after_header', 'yogg_work_page_header');
 function yogg_work_page_header() {
 	echo "<h1>Workin' it.</h1>";

@@ -10,7 +10,6 @@ include_once(dirname(__FILE__) . '/includes/widgets.php');
 include_once(dirname(__FILE__) . '/includes/meta_boxes.php');
 
 
-
 /**
  ** Genesis mods
  **
@@ -38,14 +37,35 @@ add_theme_support ( 'genesis-menus', array (
 ));
 
 
+/**
+ * Remove Genesis Page Templates
+ *
+ * @author Bill Erickson
+ * @link http://www.billerickson.net/remove-genesis-page-templates
+ *
+ * @param array $page_templates
+ * @return array
+ */
+add_filter( 'theme_page_templates', 'yogg_remove_genesis_page_templates' );
+function yogg_remove_genesis_page_templates( $page_templates ) {
+    unset( $page_templates['page_archive.php'] );
+    unset( $page_templates['page_blog.php'] );
+    return $page_templates;
+}
+
+
 
 /**
- ** Yogg custom iamge sizes
+ ** Yogg custom image sizes
  **
  **
 **/ 
 add_image_size('archive-grid', 200, 200, true);
-add_image_size('page-top', 1000, 300, true);
+add_image_size('page-top', 1150, 300, true);
+add_image_size('slider', 1150, 500, true);
+
+
+
 
 
 

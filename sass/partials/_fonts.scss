@@ -68,3 +68,14 @@
 		'bold',
 		'italic'
 );
+
+@include font-face('Quiroga Serif Bold Italic', 
+	font-files(
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.woff',
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.ttf',
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.svg'
+	),
+		'quirogaserifpro_bolditalic_macroman/QuirogaSerifPro-BoldItalic-webfont.eot',
+		'bold',
+		'italic'
+);
