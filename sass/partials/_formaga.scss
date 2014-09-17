@@ -13,10 +13,10 @@
 		width:100%;
 		color:$white;
 	}
-
 }
 
 
+%formaga,
 #formaga {
 	clear:both;
 	background:$tertiary;
@@ -27,6 +27,10 @@
 		@include container(10);	
 		@include pie-clearfix;
 
+		h2 {
+			@extend .epsilon;
+		}		
+
 		>div {
 			text-align:center;
 			@include span(2 of 10);
@@ -36,23 +40,15 @@
 	#formaga-bottom {
 		@include pie-clearfix;
 
+		h3 {
+			color: $primary;
+			padding:2rem 0;
+			@extend .beta;			
+		}
+
 		>div {
 			text-align:center;
 			@include span(isolate 8 at 3);
 		}		
-	}
-}
-
-
-
-.home #formaga {
-	h2 {
-		@extend .epsilon;
-	}
-
-	#formaga-bottom h3 {
-		color: $primary;
-		padding:2rem 0;
-		@extend .beta;
 	}
 }

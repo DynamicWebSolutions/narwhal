@@ -3,6 +3,15 @@
 	article {
 		@include container;
 
+		header {
+			text-align:center;
+
+			h1 {
+				padding:2rem;
+				@extend .gamma;
+			}
+		}
+
 		.gallery {
 			@include span(8);
 		}
@@ -10,8 +19,49 @@
 		.entry-content {
 			background:$tertiary;
 			padding:2rem;
-			@include span(4 last);
+			@include span(12 last);
+		}
+
+		&.has-gallery {
+			.entry-content {
+				@include span(4 last);
+			}
+		}
+
+		footer {
+			clear:both;
+			background:none;
+
+			.page-navigation {
+				padding:3rem 0;
+				@include span(4);
+				@include push(4);
+
+				a {
+					color:$primary;
+					background: $secondary;
+					display:block;
+					height:8rem;
+
+					span {
+						@extend .beta;
+					}
+
+					p {
+						@extend .epsilon;
+					}
+
+					&.link-next {
+						@include span(5 last);
+					}
+
+					&.link-previous {
+						@include span(5 first);
+					}					
+					
+				}
+
+			}
 		}
 	}
-
 }

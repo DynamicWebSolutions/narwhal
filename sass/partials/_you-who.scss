@@ -1,0 +1,29 @@
+.page-id-33 {
+
+	article {
+
+		header {
+
+			h1 {
+				text-align:center;
+				padding:3rem 0;
+				text-transform: capitalize;
+			}
+		}
+	}
+
+	.entry-content {
+		@extend %formaga;
+	}	
+}
+
+
+.parent-pageid-33 {
+
+	.middle-nav {
+
+		li {
+			@include span(2);
+		}
+	}
+}

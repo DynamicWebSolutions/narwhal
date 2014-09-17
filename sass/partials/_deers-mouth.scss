@@ -1,0 +1,48 @@
+.deers-mouth {
+	@include pie-clearfix;
+
+	h2 {
+		text-align:center;
+		padding:3rem 0;
+		color:$primary;
+	}
+
+	aside {
+		@include nested(12);
+		@include span(6 last);
+
+		&:first-of-type {
+			border: 1px solid $lightGray;
+			margin-bottom: 1rem;
+			@include border-radius;
+			@include span(6 first);
+		}
+
+		article{
+			padding: 2rem 1rem;
+			border-bottom: 1px solid $lightGray;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			.entry-content {
+				padding: 0rem;
+			}
+
+			footer {
+				color: $gray;
+				background: $white;
+				text-align: left;
+
+				time {
+					display:block;
+				}
+
+				a {
+					color:$primary;
+				}
+			}			
+		}
+	}
+}

@@ -15,14 +15,20 @@ function yogg_subst_meta_box() {
 
 add_action( 'add_meta_boxes', 'yogg_vargangrepp_meta_box' );
 function yogg_vargangrepp_meta_box() {
-  add_meta_box(
-	  'vargangrepp',
-	  'Vargangrepp',
-	  'yogg_vargangrepp_do_meta_box',
-	  'page',
-	  'normal',
-	  'default'
-  );
+
+	$screens = array('post', 'page', 'yogg_work');
+
+	foreach($screens as $screen):
+	  add_meta_box(
+		  'vargangrepp',
+		  'Vargangrepp',
+		  'yogg_vargangrepp_do_meta_box',
+		  $screen,
+		  'normal',
+		  'default'
+	  );
+	endforeach;
+
 }
 
 

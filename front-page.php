@@ -1,5 +1,10 @@
 <?php
 
+remove_action('genesis_entry_header', 'genesis_do_post_title');
+remove_action('genesis_post_title', 'genesis_do_post_title');
+remove_action( 'genesis_loop', 'genesis_do_loop' );
+
+
 add_action('genesis_after_header', 'yogg_homepage_after_header');
 function yogg_homepage_after_header() {
     if ( is_front_page() ) {
@@ -33,7 +38,6 @@ function yogg_middle_menu() {
 }
 
 
-remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action('genesis_before_loop', 'yogg_homepage_vargangrepp');
 function yogg_homepage_vargangrepp() {
 	genesis_widget_area ('home_vargangrepp', array(
@@ -59,17 +63,62 @@ function yogg_homepage_after_content_sidebar_wrap() {
 
 
   echo '</section>'; 	
+
+  echo '<section class="deers-mouth">
+				  <h2>From the deer&apos;s mouth</h2>
+
+				  <aside>';
+
+						$recentArgs = array(
+							'posts_per_page' => 2
+						);
+
+					  $recentPosts = new WP_Query($recentArgs);
+
+					  if($recentPosts->have_posts()) :
+					  	while($recentPosts->have_posts()) :
+					  		$recentPosts->the_post();
+
+								echo sprintf(
+									'<article>
+										<header>
+											<h3><a href="%s" title="%s">%s</a></h3>
+										</header>
+										<div class="entry-content">
+											%s
+										</div>
+										<footer>
+										%s
+										%s
+										</footer>
+									</article>',
+									get_permalink(),
+									the_title_attribute(array('echo' => false)),
+									get_the_title(),
+									get_the_excerpt(),
+									do_shortcode('[post_date format="F j, Y" label=""]'),
+									do_shortcode('[post_categories sep=", " before=""]')
+								);
+
+					  	endwhile;
+					  endif;		
+
+					  wp_reset_postdata();
+
+	echo		'</aside>
+
+				  <aside>
+					  <a class="twitter-timeline" href="https://twitter.com/LandOfyogg" data-widget-id="512236773447983104">Tweets by @LandOfyogg</a>
+					</aside>			  
+			  </section>';
 }
-
-
-remove_action('genesis_entry_header', 'genesis_do_post_title');
-remove_action('genesis_post_title', 'genesis_do_post_title');
 
 
 add_filter('genesis_seo_title', 'yogg_homepage_site_title_filter', null, 3);
 function yogg_homepage_site_title_filter($title, $inside, $wrap) {
 	return '<h1 class="site-title" itemprop="headline">'.$inside.'</h1>';
 }
+
 
 
 genesis();

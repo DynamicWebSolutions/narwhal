@@ -28,8 +28,35 @@ $susy: (
   math: fluid,
   global-box-sizing: content-box,
   output: float,
-  gutter-position: split,
+  gutter-position: inside,
 );
+
+
+// ===================================================
+// yogg : Custom Classes
+// ===================================================
+
+%vargangrepp {
+	clear:both;
+	background:$primary;
+	color: $white;
+	text-align:center;
+	padding:3rem;
+	@include container;
+	@include pie-clearfix;
+
+	p {
+		margin:0 auto;
+		width:75%;
+	}
+
+	a {
+		color:$white;
+	}
+}
+
+
+
 
 // ===================================================
 // TYPEPLATE : Custom Sass Variables
