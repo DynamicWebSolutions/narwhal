@@ -82,3 +82,55 @@ function yogg_gallery_post_class($classes) {
 
 	return $classes;
 }
+
+function yogg_subst_header() {
+	global $post;
+
+	$subst = get_post_meta( $post->ID, '_yogg_subst', true );
+	$substImage = genesis_get_image( 
+		array( 
+			'format' => 'html', 
+			'size' => 'page-top', 
+			'attr' => array( 
+				'title' => $subst 
+			) 
+		) 
+	);
+
+	if($subst) {
+		echo sprintf(
+			'<div id="subst-header">%s <h2>%s</h2></div>', 
+			$substImage, 
+			$subst
+		);	
+	}
+
+
+	$pageID = ($post->post_parent) ? $post->post_parent : $post->ID;
+
+	$breadcrumbArgs = array(
+		'child_of'     => $pageID ,
+		'date_format'  => get_option('date_format'),
+		'depth'        => -1,
+		'echo'         => 0,
+		'post_type'    => 'page',
+		'post_status'  => 'publish',
+		'sort_column'  => 'menu_order, post_title',
+		'title_li'     => null
+	);
+
+	echo sprintf(
+		'<nav class="middle-nav">
+			<ul class="menu">
+				<li %s>
+					<a href="%s">%s &#187;</a>
+				</li>
+				%s
+			</ul>
+		</nav>', 
+		(!$post->post_parent) ? 'class="page_item current_page_item"' : 'class="page_item"',
+		get_permalink($pageID),
+		get_the_title($pageID),
+		wp_list_pages( $breadcrumbArgs )
+	);
+}

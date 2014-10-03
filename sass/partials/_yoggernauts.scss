@@ -1,0 +1,30 @@
+body.page-template-page-templatespage-subst-yoggernauts-php {
+
+	#yoggernauts-widget	{
+		background: $tertiary;
+		padding:0 1rem;
+		@include container;
+
+		aside {
+			background: $white;
+			@include span(4 narrow);
+
+			img {
+				width:100%;
+				height:auto;
+			}
+
+			>p,
+			>a {
+				padding:0 2rem;
+			}
+
+			p + p {
+				text-indent: 0;
+			}
+		}
+
+	}
+
+	
+}

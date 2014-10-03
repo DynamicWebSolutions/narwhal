@@ -9,6 +9,7 @@
 include_once(dirname(__FILE__) . '/includes/widgets.php');
 include_once(dirname(__FILE__) . '/includes/methods.php');
 include_once(dirname(__FILE__) . '/includes/meta_boxes.php');
+include_once(dirname(__FILE__) . '/includes/user_profile.php');
 
 
 /**
@@ -64,6 +65,7 @@ function yogg_remove_genesis_page_templates( $page_templates ) {
 add_image_size('archive-grid', 200, 200, true);
 add_image_size('page-top', 1150, 300, true);
 add_image_size('slider', 1150, 500, true);
+add_image_size('portrait', 400, 600, true);
 
 
 
@@ -88,11 +90,12 @@ function yogg_encantations() {
 
 add_action('admin_enqueue_scripts', 'yogg_admin_js');
 function yogg_admin_js() {
-    global $typenow;
 
-    $screens = array('page', 'post', 'yogg_work');
+    $screen = get_current_screen();
 
-    if(in_array($typenow, $screens)) :
+    $screens = array('post', 'profile');
+
+    if(in_array($screen->base, $screens)) :
 
         wp_enqueue_media();
         wp_register_script('yogg-admin', get_stylesheet_directory_uri() . '/js/admin/admin.js', 'jquery', '1.0', true);
@@ -192,21 +195,6 @@ function yogg_twitter_script() {
     echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
 }
 
-/*
-add_action('genesis_footer', 'yogg_footer_widgets');
-function yogg_footer_widgets() {
-
-    genesis_widget_area ('footer_left', array(
-        'before' => '<div>',
-        'after' => '</div>'
-    ));  
-
-    genesis_widget_area ('footer_right', array(
-        'before' => '<div>',
-        'after' => '</div>'
-    ));  
-}
-*/
 
 add_filter('genesis_footer_creds_text', 'yogg_footer_creds_text');
 function yogg_footer_creds_text( $creds ) {

@@ -1,0 +1,46 @@
+body.single-post {
+
+	section {
+		position:relative;
+
+		>h2 {
+			text-align:center;
+			padding:3rem;
+		}
+		
+		>a {
+			position: absolute;
+			top:45%;
+			right:5%;
+		}
+	}
+
+	.site-inner {
+		background: $tertiary;
+		padding:3rem;
+
+		main {
+			background: $white;
+
+			.entry-title,
+			.entry-content,
+			.entry-footer {
+				padding:1rem 3rem;
+			}
+
+			footer {
+				text-align:left;
+				background:$lightGray;
+				color:$gray;
+
+				time {
+					display:block;
+				}
+
+				a {
+					color: $primary;
+				}
+			}
+		}
+	}
+}

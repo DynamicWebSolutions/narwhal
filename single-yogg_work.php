@@ -62,8 +62,6 @@ function yogg_work_single_before_entry_content() {
 		'post_mime_type' => 'image'
 	) );
 
-	FB::log(count($attachments));
-
 	if(0 !== count($attachments)) {
 		$featuredImage = get_post_thumbnail_id();
 		echo do_shortcode("[gallery size='large' columns='1' link='none' exclude={$featuredImage}]");
