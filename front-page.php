@@ -8,7 +8,10 @@ remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action('genesis_after_header', 'yogg_homepage_after_header');
 function yogg_homepage_after_header() {
     if ( is_front_page() ) {
-    	echo do_shortcode('[flexslider slug="homepage"]');  	
+
+			if(function_exists('show_flexslider_rotator')) {
+				echo show_flexslider_rotator( 'homepage' );    	
+			}
     }
 }
 

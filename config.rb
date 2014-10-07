@@ -8,6 +8,8 @@ images_dir = "images"
 fonts_dir = "fonts"
 javascripts_dir = "javascripts"
 
+require "breakpoint"
+
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 

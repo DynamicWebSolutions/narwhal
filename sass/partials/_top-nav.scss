@@ -1,0 +1,150 @@
+nav.top-nav {
+
+	$nav-initial-position: -750px;
+	background:$lightPrimary;
+	padding:1em 1em 0em 1em;
+	z-index: 11;
+	position: absolute;
+	width:100%;	
+
+	@include keyframes(open) {
+	    from { @include transform(translate(0, $nav-initial-position)); }
+	    to { @include transform(translate(0, 0)); }
+	}
+
+	@include keyframes(close) {
+	    from { @include transform(translate(0, 0)); }
+	    to { @include transform(translate(0, $nav-initial-position)); }
+	}
+
+	@include translate(0, $nav-initial-position);
+	@include container;
+	@include pie-clearfix();
+
+	&.open {
+    @include animation(open 0.5s ease-in-out);
+	}
+
+	&.opened {
+		@include transform(translate(0, 0));
+	}
+
+	&.close {
+    @include animation(close 0.5s ease-in-out);
+	}
+
+	form {
+		background: $overlay;
+		letter-spacing: .1rem;
+		padding:0 0.5rem 0 0;
+		font-size: 1.2rem;
+		display:none;
+		width:100%;
+		@include breakpoint($county) {
+			display:table;
+		}
+
+		img.ajax-loader {
+			width:16px;
+			height:16px;
+		}
+
+		span,
+		label,
+		input {
+			display: table-cell;
+			vertical-align: middle;
+			padding:0 0.5rem;
+			border:none;
+			text-align: right;
+		}
+
+		span {
+			width:20%;
+			@include transition-property(width);
+			@include transition-duration(0.6s);
+			@include transition-timing-function(ease-in);
+
+			&.active {
+				width:50%;
+			}
+		}
+
+		#telegraph-sounder {		
+			font-family: $font-bold;	
+			background:$black;
+			color:$white;
+			height:3rem;
+			line-height:2.5;
+			text-align: center;
+			display:table-caption;
+			margin:0 auto 0.5rem auto;
+			width:100%;
+
+			@include breakpoint($continent) {
+				display:table-cell;
+				margin:0 auto;
+				width:auto;
+			}			
+		}			
+
+		input {
+			height:2rem;
+			width:100%;
+			@include border-radius();
+
+
+			&[type="submit"] {
+				font-family: $font-normal;	
+				text-transform: uppercase;
+				background: $primary;
+				height:2.2rem;
+				color: $secondary;
+				letter-spacing: .1rem;
+				position: relative;
+				top:10px;
+				text-align:center;
+				@include border-radius(2px);
+			}
+		}
+	}
+
+	ul.menu {
+		@include pie-clearfix;
+
+		>li {
+			border-bottom:1px solid $overlay;
+			padding-top:1rem;
+			padding-bottom: 1rem;
+
+			@include breakpoint($county) {
+				border-right:1px solid $primary;
+				min-height: 260px;
+				padding-top:1rem;
+				padding-bottom: 0.3rem;
+				@include span(2);
+			}
+
+			@include breakpoint($country) {
+				min-height: 180px;
+			}
+
+			&:first-child {		
+				padding-top:0;
+			}			
+
+			&:last-child {		
+				border-right:none;
+			}
+
+			li {
+				float:none;
+				width:100%;
+				border-right:none;
+				padding:0.3rem 0; 
+
+
+			}
+		}		
+	}
+}

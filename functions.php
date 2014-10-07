@@ -111,6 +111,7 @@ function yogg_admin_js() {
  **
  **
 **/ 
+add_filter('body_class', 'yogg_menu_item_count');
 add_action('genesis_before', 'yogg_sitewide_mods');
 function yogg_sitewide_mods() {
     remove_action( 'genesis_site_description', 'genesis_seo_site_description');    
@@ -121,8 +122,8 @@ add_action('genesis_header', 'yogg_top_menu_toggle', 11);
 function yogg_top_menu_toggle() {
     echo '
         <span id="header-meta">
-            <span itemprop="telephone">(804) 888-6380</span>
-            <span itemprop="email"><a href="mailto:hello@landofyogg.com">hello@landofyogg.com</a></span>
+            <a itemprop="telephone" href="tel:1-804-888-6380">(804) 888-6380</a>
+            <a itemprop="email" href="mailto:hello@landofyogg.com">hello@landofyogg.com</a>
             <span id="hamburger"></span>
         </span>';
 }
@@ -204,3 +205,4 @@ function yogg_footer_creds_text( $creds ) {
     $creds .= "<span class='creds'>&copy; {$year} <a href='{$url}' title='Land of yogg'>yogg</a> All rights reserved";
     return $creds;
 }
+

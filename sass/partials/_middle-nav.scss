@@ -11,12 +11,163 @@
 
 		li {
 			text-align:center;
-			border-right: 1px solid $tertiary;
-			@include span(3);
+			border-bottom: 1px solid $tertiary;
+			padding:1rem 0;
+			@include breakpoint($country) {
+				padding:0;
+				border-right: 1px solid $tertiary;
+				border-bottom: none;
+			}
 
 			&:last-child {		
 				border-right:none;
+				border-bottom:none;
 			}		
 		}		
 	}
+}
+
+
+body.children-0 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(10 of 10);
+			}				
+		}
+	}
+}
+
+body.children-1 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 2);
+			}				
+		}
+	}	
+}
+
+body.children-2 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 3);
+			}				
+		}
+	}		
+}
+
+body.children-3 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 4);
+			}				
+		}
+	}			
+}
+
+body.children-4 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 5);
+			}				
+		}
+	}	
+}
+
+body.children-5 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 6);
+			}				
+		}
+	}	
+}
+
+body.children-6 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 7);
+			}				
+		}
+	}		
+}
+
+body.children-7 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 8);
+			}				
+		}
+	}		
+}
+
+body.children-8 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 9);
+			}				
+		}
+	}		
+}
+
+body.children-9 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 10);
+			}				
+		}
+	}		
+}
+
+body.children-10 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 11);
+			}				
+		}
+	}		
+}
+
+body.children-11 {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 12);
+			}				
+		}
+	}		
+}
+
+
+body.home {
+	.middle-nav {
+		li {
+			@include span(1 of 1);
+			@include breakpoint($country) {
+				@include span(1 of 4);
+			}				
+		}
+	}		
 }

@@ -1,30 +1,16 @@
-#subst-header {
-	position: relative;
-
-	img {
-		width:100%;
-		height:auto;
-	}
-
-	h2 {
-		text-align:center;
-		position:absolute;
-		top:45%;
-		width:100%;
-		color:$white;
-	}
-}
-
-
 %formaga,
 #formaga {
 	clear:both;
 	background:$tertiary;
 	padding:3rem 0;
 	@include pie-clearfix;
+}
+
+body.home {
 
 	#formaga-top {
 		@include container(10);	
+		@include squish(10%);		
 		@include pie-clearfix;
 
 		h2 {
@@ -33,7 +19,11 @@
 
 		>div {
 			text-align:center;
-			@include span(2 of 10);
+			@include span(5 of 10);
+			@include breakpoint($country) {
+				@include span(2 of 10);
+			}
+			
 		}
 	}
 
@@ -50,5 +40,39 @@
 			text-align:center;
 			@include span(isolate 8 at 3);
 		}		
+	}
+}
+
+
+body.page-template-page-templatespage-formaga-php {
+
+	.entry-content {
+		padding:1rem 0;		
+		@include container(12);	
+
+		>p {
+			@include span(12);
+		}
+
+		#formaga-top {
+			@include squish(1%);		
+			@include pie-clearfix;
+
+			h2 {
+				@extend .epsilon;
+			}		
+
+			>div {
+				text-align:center;
+				@include span(12);
+				@include breakpoint($county) {
+					@include span(6);
+				}				
+				@include breakpoint($country) {
+					@include span(4);
+				}
+				
+			}
+		}
 	}
 }

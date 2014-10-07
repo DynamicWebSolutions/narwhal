@@ -9,13 +9,18 @@
 
 	aside {
 		@include nested(12);
-		@include span(6 last);
+		@include span(12);
+		@include breakpoint($county) {
+			@include span(6 last);
+		}
 
 		&:first-of-type {
 			border: 1px solid $lightGray;
 			margin-bottom: 1rem;
 			@include border-radius;
-			@include span(6 first);
+			@include breakpoint($county) {
+				@include span(6 first);
+			}
 		}
 
 		article{

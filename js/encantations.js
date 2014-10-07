@@ -30,3 +30,23 @@ yogg['menu'] = (function(w,d,$) {
 	});	
 
 }(window, document, jQuery));
+
+
+yogg['telegraph-service'] = (function(w,d,$) {
+	var triggers;
+
+	triggers = $('nav input');
+
+	triggers.on('focus', function() {
+		triggers.each(function(i, el) {
+			$(el).parent().removeClass('active');
+		});
+
+		$(this).parent().addClass('active');
+	});
+
+/*
+
+*/
+
+}(window, document, jQuery));

@@ -13,7 +13,10 @@
 		}
 
 		.gallery {
-			@include span(8);
+			@include span(12);
+			@include breakpoint($country) {
+				@include span(8);
+			}
 		}
 
 		.entry-content {
@@ -24,7 +27,10 @@
 
 		&.has-gallery {
 			.entry-content {
-				@include span(4 last);
+				@include span(12);
+				@include breakpoint($country) {
+					@include span(4 last);
+				}				
 			}
 		}
 

@@ -83,6 +83,24 @@ function yogg_gallery_post_class($classes) {
 	return $classes;
 }
 
+
+function yogg_menu_item_count($classes) {
+	global $post;
+
+	$id = ($post->post_parent) ? $post->post_parent : $post->ID;
+
+	$args = array(
+		'post_type' => 'page',
+		'post_parent' => $id
+	);
+
+	$pages = new WP_Query($args);
+
+	$classes[] = 'children-'.$pages->post_count;
+
+	return $classes;
+}
+
 function yogg_subst_header() {
 	global $post;
 

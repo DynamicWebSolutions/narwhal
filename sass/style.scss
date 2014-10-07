@@ -6,16 +6,17 @@
  Template:     genesis
 */
 
-//@import url("../genesis/style.css");
 @import "susy";
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
 @import "compass/utilities";
+@import "breakpoint";
 @import "partials/_fonts";
 @import "partials/_variables";
 @import "partials/_typeplate";
 @import "partials/_header";
+@import "partials/_top-nav";
 @import "partials/_page";
 @import "partials/_deerdiary";
 @import "partials/_deers-mouth";
@@ -26,6 +27,8 @@
 @import "partials/_footer";
 @import "partials/_work-archive";
 @import "partials/_work-single";
+@import "partials/_single-post";
+@import "partials/_yoggernauts";
 @import "partials/_slider";
 
 
@@ -59,4 +62,10 @@ h2.site-description {
 a {
 	text-decoration: none;
 	color:$primary;
+}
+
+
+img {
+	width:100%;
+	height:auto;
 }

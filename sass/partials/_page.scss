@@ -1,5 +1,22 @@
 .page {
 
+	#subst-header {
+		position: relative;
+
+		img {
+			width:100%;
+			height:auto;
+		}
+
+		h2 {
+			text-align:center;
+			position:absolute;
+			top:45%;
+			width:100%;
+			color:$white;
+		}
+	}	
+
 	article {
 
 		h1 {
@@ -8,17 +25,19 @@
 		}
 
 		.entry-content {
-			padding:3em 12em;
-		}
-	}
+			padding:3em 1em;
 
-	&.page-id-15,
-	&.parent-pageid-15 {
-
-		.middle-nav {
-			li {
-				@include span(2 of 10);
-
+			@include breakpoint($municipality) {
+				padding:3em 1.5em;
+			}					
+			@include breakpoint($county) {
+				padding:3em 3em;
+			}			
+			@include breakpoint($country) {
+				padding:3em 6em;
+			}
+			@include breakpoint($continent) {
+				padding:3em 12em;
 			}
 		}
 	}

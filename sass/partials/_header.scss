@@ -1,22 +1,10 @@
-.site-title {
-	background-image: inline-image('yogg-logo.svg');
-	background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.no-svg .site-title {
-	background-image: url('images/yogg-logo.png');
-	background-repeat: no-repeat;
-  background-size: contain;
-}
-
 header.site-header {
 	height:3.5rem;
 	background: $primary;
 	color:$white;
 	padding:1rem 1.5rem;
 	position: relative;
-	z-index:2;
+	z-index:20;
 	line-height:1rem;
 
 	a {
@@ -24,43 +12,71 @@ header.site-header {
 	}
 
 	.title-area {
-		width:5%;
+		width:6rem;
 		float:left;
 	}	
 
 	.site-title {
 		margin:0;
+		background-image: inline-image('yogg-logo.svg');
+		background-repeat: no-repeat;
+	  background-size: contain;		
 
 		a {
 			text-transform: lowercase;
-			text-indent: -999px;
+			text-indent: -9999px;
 			line-height: 2rem;
 			display:block;
 		}
 	}
 
-
-
 	#header-meta {
 		float:right;
 
 		a {
-			color: $secondary;
-			padding:0 0.5rem;
+			display: inline-block;
+			position:relative;
+			text-indent: -9999px;
+			min-height:2rem;
+			min-width:2rem;
+			top:-0.75rem;
+			margin-right:2rem;
 		}
 
-		span {
-			display: inline-block;
+		a[itemprop="telephone"] {
+			background-image: inline-image('phone.svg');
+			background-repeat: no-repeat;
+		  background-size: contain;
+		  background-position: center;
+
+			@include breakpoint($county) {
+				top:0rem;
+				text-indent: 0px;
+				background-image: none;
+			}		
 		}
+
+		a[itemprop="email"] {	
+			color:$secondary;
+			background-image: inline-image('envelope.svg');
+			background-repeat: no-repeat;
+		  background-size: contain;
+		  background-position: center;
+
+			@include breakpoint($county) {
+				top:0rem;
+				text-indent: 0px;
+				background-image: none;
+			}	
+		}			
 
 		#hamburger {
+			display:inline-block;
 		  position: relative;
-		  padding-left: 1.25rem;	
 		  width: 2.5rem;
 		  height:1.3rem;
 		  top:-0.5rem;
 		  cursor: pointer;
-
 
 		  &:before {
 			  content: "";
@@ -76,107 +92,29 @@ header.site-header {
 	}
 }
 
-nav.top-nav {
 
-	$nav-initial-position: -250px;
+// Fallbacks
+.no-svg {
 
-	@include keyframes(open) {
-	    from { @include transform(translate(0, $nav-initial-position)); }
-	    to { @include transform(translate(0, 0)); }
-	}
+	header {
 
-	@include keyframes(close) {
-	    from { @include transform(translate(0, 0)); }
-	    to { @include transform(translate(0, $nav-initial-position)); }
-	}
-
-	background:$lightPrimary;
-	padding:1em 1em 0em 1em;
-	z-index: 1;
-	position: absolute;
-	width:100%;
-	@include translate(0, $nav-initial-position);
-	@include container;
-	@include pie-clearfix();
-
-	&.open {
-    @include animation(open 0.5s ease-in-out);
-	}
-
-	&.opened {
-		@include transform(translate(0, 0));
-	}
-
-	&.close {
-    @include animation(close 0.5s ease-in-out);
-	}
-
-	form {
-		background: $overlay;
-		letter-spacing: .1rem;
-		display:table;
-		padding:0 0.5rem 0 0;
-		font-size: 1.2rem;
-
-		span,
-		label,
-		input {
-			display: table-cell;
-			vertical-align: middle;
-			padding:0 0.5rem;
-			border:none;
+		.site-title {
+			background-image: url('yogg-logo.png');
+			background-repeat: no-repeat;
+		  background-size: contain;
 		}
 
-		input {
-			height:2rem;
-			@include border-radius();
-
-			&[type="submit"] {
-				font-family: $font-normal;	
-				text-transform: uppercase;
-				background: $primary;
-				height:2.2rem;
-				color: $secondary;
-				letter-spacing: .1rem;
-				position: relative;
-				top: 9px;
-				@include border-radius(2px);
-
-			}
+		span[itemprop="telephone"] {
+			background-image: url('phone.png');
+			background-repeat: no-repeat;
+		  background-size: contain;
 		}
 
-		#telegraph-sounder {		
-			font-family: $font-bold;	
-			background:$black;
-			color:$white;
-			width:100%;
-			text-align: center;
-		}	
-	}
-
-	ul.menu {
-		@include pie-clearfix;
-
-
-		>li {
-			border-right:1px solid $primary;
-			min-height: 180px;
-			padding-top:1rem;
-			padding-bottom: 0.3rem;
-			@include span(2);
-			@include pie-clearfix;
-
-			&:last-child {		
-				border-right:none;
-			}
-
-
-			li {
-				float:none;
-				width:100%;
-				border-right:none;
-				padding:0.3rem 0;
-			}
+		span[itemprop="email"] {
+			background-image: url('envelope.png');
+			background-repeat: no-repeat;
+		  background-size: contain;
 		}		
 	}
 }
+

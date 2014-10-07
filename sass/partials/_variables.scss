@@ -21,6 +21,13 @@ $tertiary: rgba(240,234,216,1);     // Beige
 $white: rgba(255,255,255,1);
 
 
+// Breakpoints
+$continent: 1050px;
+$country: 768px;
+$county: 600px;
+$municipality: 500px;
+
+
 // Layout
 $susy: (
   columns: 12,  // The number of columns in your grid
