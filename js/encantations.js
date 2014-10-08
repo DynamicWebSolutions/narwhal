@@ -35,18 +35,26 @@ yogg['menu'] = (function(w,d,$) {
 yogg['telegraph-service'] = (function(w,d,$) {
 	var triggers;
 
-	triggers = $('nav input');
+	triggers = $('#telegraph-message input');
 
 	triggers.on('focus', function() {
-		triggers.each(function(i, el) {
-			$(el).parent().removeClass('active');
-		});
+		var activeEl, inactive;
 
-		$(this).parent().addClass('active');
+	  activeEl = $(this);
+		inactive = triggers.not(activeEl);
+
+		activeEl.parent().addClass('active');
+		
+		triggers.not(activeEl).each(function(i, el) { 
+			$(el).parent().addClass('inactive');
+		});
 	});
 
-/*
-
-*/
+	triggers.on('blur', function() {
+		triggers.each(function(i, el) {
+			$(el).parent().removeClass('active');
+			$(el).parent().removeClass('inactive');			
+		});		
+	});
 
 }(window, document, jQuery));

@@ -21,6 +21,7 @@ function yogg_home_after_header() {
 
 add_filter( 'genesis_attr_content', 'yogg_blog_attributes_content' );
 function yogg_blog_attributes_content( $attributes ) {
+
 	$attributes['id'] = 'formaga';
 	return $attributes;
 }
@@ -36,15 +37,17 @@ function yogg_home_entry_header() {
 		'attr'    => genesis_parse_attr( 'entry-image' )
 	) );	
 
-	if ( ! empty( $img ) ) {
-   printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $img );
+	if(!empty($img)) {
+		printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $img );
 	}
 }
 
 
 add_filter( 'genesis_post_meta', 'yogg_blog_post_meta_filter' );
 function yogg_blog_post_meta_filter($post_meta) {
-	if ( !is_page() ) {
+
+	if(!is_page()) {
+
 		return '[post_date format="F j, Y"]' . '[post_categories before=""]';
 	}
 }

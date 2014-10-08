@@ -1,4 +1,4 @@
-/*
+/*!
  Theme Name:   Land of Yogg
  Description:  Crafted for the fine denizens of the Land of Yogg.
  Author:       Dynamic Web Solutions
@@ -57,6 +57,16 @@ div.site-container {
 
 h2.site-description {
 	display: none;
+}
+
+b,
+strong {
+	font-family: $font-bold;
+}
+
+i,
+em {
+	font-family: $font-italic;
 }
 
 a {

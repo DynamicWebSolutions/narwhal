@@ -5,8 +5,6 @@ remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
 remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
-
-
 add_action( 'genesis_after_content_sidebar_wrap', 'yogg_vargangrepp_display_post_meta');
 add_action( 'genesis_entry_footer', 'genesis_prev_next_post_nav' );
 add_action( 'genesis_entry_footer', 'yogg_entry_footer_markup_open', 5);
@@ -19,7 +17,8 @@ add_filter('post_class', 'yogg_gallery_post_class');
 add_filter('the_title', 'yogg_post_title_output');
 function yogg_post_title_output( $title ) {
 
-	if ( in_the_loop() && is_main_query() ) {
+	if(in_the_loop() && is_main_query()) {
+
 		$title = sprintf(
 			'<a href="%s" title="Work">Work</a> &#187; %s',
 			get_post_type_archive_link( 'yogg_work' ),
@@ -47,6 +46,7 @@ function yogg_work_single_entry_header() {
 
 add_filter( 'gallery_style', 'yogg_work_single_gallery_style');
 function yogg_work_single_gallery_style( $styles ) {
+	
 	return '<div class="gallery">';
 }
 

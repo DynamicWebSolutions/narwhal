@@ -31,6 +31,7 @@ function yogg_single_featured_image() {
 
 add_filter( 'genesis_post_meta', 'yogg_single_meta_filter' );
 function yogg_single_meta_filter($post_meta) {
+	
 	$post_meta = '[post_date format="F j, Y"]' . '[post_categories before=""]';
 	return $post_meta;
 }

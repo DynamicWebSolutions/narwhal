@@ -7,24 +7,27 @@ remove_action( 'genesis_loop', 'genesis_do_loop' );
 
 add_action('genesis_after_header', 'yogg_homepage_after_header');
 function yogg_homepage_after_header() {
-    if ( is_front_page() ) {
 
-			if(function_exists('show_flexslider_rotator')) {
-				echo show_flexslider_rotator( 'homepage' );    	
-			}
-    }
+  if(is_front_page()) {
+
+		if(function_exists('show_flexslider_rotator')) {
+
+			echo show_flexslider_rotator( 'homepage' );    	
+		}
+  }
 }
 
 
 add_filter('flexslider_hg_rotators', 'yogg_slider_customizations');
 function yogg_slider_customizations($args) {
+
 	if(isset($args['homepage'])) {
+
 		$options = json_decode($args['homepage']['options']);
 		$options->prevText = '&#171;';
 		$options->nextText = '&#187;';
 
 		$args['homepage']['options'] = json_encode($options);
-
 	}
 
 	return $args;
@@ -33,6 +36,7 @@ function yogg_slider_customizations($args) {
 
 add_action('genesis_after_header', 'yogg_middle_menu');
 function yogg_middle_menu() {
+
 	wp_nav_menu( array( 
 		'theme_location' => 'middle', 
 		'container' => 'nav',
@@ -43,6 +47,7 @@ function yogg_middle_menu() {
 
 add_action('genesis_before_loop', 'yogg_homepage_vargangrepp');
 function yogg_homepage_vargangrepp() {
+
 	genesis_widget_area ('home_vargangrepp', array(
     'before' => '<section class="vargangrepp">',
     'after' => '</section>'
@@ -52,6 +57,7 @@ function yogg_homepage_vargangrepp() {
 
 add_action('genesis_after_content_sidebar_wrap', 'yogg_homepage_after_content_sidebar_wrap');
 function yogg_homepage_after_content_sidebar_wrap() {
+
 	echo '<section id="formaga">';
 
 	  genesis_widget_area ('home_formaga_top', array(
@@ -119,6 +125,7 @@ function yogg_homepage_after_content_sidebar_wrap() {
 
 add_filter('genesis_seo_title', 'yogg_homepage_site_title_filter', null, 3);
 function yogg_homepage_site_title_filter($title, $inside, $wrap) {
+	
 	return '<h1 class="site-title" itemprop="headline">'.$inside.'</h1>';
 }
 

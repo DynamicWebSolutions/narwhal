@@ -50,6 +50,7 @@ add_theme_support ( 'genesis-menus', array (
  */
 add_filter( 'theme_page_templates', 'yogg_remove_genesis_page_templates' );
 function yogg_remove_genesis_page_templates( $page_templates ) {
+
     unset( $page_templates['page_archive.php'] );
     unset( $page_templates['page_blog.php'] );
     return $page_templates;
@@ -114,12 +115,14 @@ function yogg_admin_js() {
 add_filter('body_class', 'yogg_menu_item_count');
 add_action('genesis_before', 'yogg_sitewide_mods');
 function yogg_sitewide_mods() {
+
     remove_action( 'genesis_site_description', 'genesis_seo_site_description');    
 }
 
 
 add_action('genesis_header', 'yogg_top_menu_toggle', 11);
 function yogg_top_menu_toggle() {
+
     echo '
         <span id="header-meta">
             <a itemprop="telephone" href="tel:1-804-888-6380">(804) 888-6380</a>
@@ -131,6 +134,7 @@ function yogg_top_menu_toggle() {
 
 add_action('genesis_header', 'yogg_top_menu', 20);
 function yogg_top_menu() {
+
 	wp_nav_menu( array( 
 		'theme_location' => 'header', 
 		'container' => null,
@@ -141,6 +145,7 @@ function yogg_top_menu() {
 
 add_filter('wp_nav_menu', 'yogg_header_form', null, 2);
 function yogg_header_form($html, $args) {
+
     if('header' === $args->theme_location) {
         $menu = $html;
 
@@ -150,6 +155,7 @@ function yogg_header_form($html, $args) {
             $menu
         );
     }
+
     return $html;
 }
 
@@ -162,6 +168,7 @@ function yogg_header_form($html, $args) {
 **/ 
 add_action('genesis_before_loop', 'yogg_before_loop');
 function yogg_before_loop() {
+
     if(!is_singular()) {
         remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
         remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
@@ -177,6 +184,7 @@ function yogg_before_loop() {
 **/ 
 add_action('genesis_footer', 'yogg_footer_menu');
 function yogg_footer_menu() {
+
     wp_nav_menu( array( 
         'theme_location' => 'footer', 
         'container' => 'nav',
@@ -193,16 +201,19 @@ function yogg_footer_menu() {
 
 add_action('wp_footer', 'yogg_twitter_script');
 function yogg_twitter_script() {
+
     echo '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
 }
 
 
 add_filter('genesis_footer_creds_text', 'yogg_footer_creds_text');
 function yogg_footer_creds_text( $creds ) {
+
     $year = date("Y");
     $url = get_bloginfo('url');
     $creds = '<span class="creds">117 North 20th Street / Richmond, VA 23223</span>';
     $creds .= "<span class='creds'>&copy; {$year} <a href='{$url}' title='Land of yogg'>yogg</a> All rights reserved";
+    
     return $creds;
 }
 

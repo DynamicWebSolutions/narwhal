@@ -8,13 +8,13 @@ nav.top-nav {
 	width:100%;	
 
 	@include keyframes(open) {
-	    from { @include transform(translate(0, $nav-initial-position)); }
-	    to { @include transform(translate(0, 0)); }
+    from { @include transform3d(translate(0, $nav-initial-position)); }
+    to { @include transform3d(translate(0, 0)); }
 	}
 
 	@include keyframes(close) {
-	    from { @include transform(translate(0, 0)); }
-	    to { @include transform(translate(0, $nav-initial-position)); }
+    from { @include transform3d(translate(0, 0)); }
+    to { @include transform3d(translate(0, $nav-initial-position)); }
 	}
 
 	@include translate(0, $nav-initial-position);
@@ -26,7 +26,7 @@ nav.top-nav {
 	}
 
 	&.opened {
-		@include transform(translate(0, 0));
+		@include transform3d(translate(0, 0));
 	}
 
 	&.close {
@@ -40,6 +40,7 @@ nav.top-nav {
 		font-size: 1.2rem;
 		display:none;
 		width:100%;
+
 		@include breakpoint($county) {
 			display:table;
 		}
@@ -49,6 +50,7 @@ nav.top-nav {
 			height:16px;
 		}
 
+/*
 		span,
 		label,
 		input {
@@ -60,16 +62,16 @@ nav.top-nav {
 		}
 
 		span {
-			width:20%;
+			width:10%;
 			@include transition-property(width);
 			@include transition-duration(0.6s);
 			@include transition-timing-function(ease-in);
 
 			&.active {
-				width:50%;
+				width:40%;
 			}
 		}
-
+*/
 		#telegraph-sounder {		
 			font-family: $font-bold;	
 			background:$black;
@@ -86,28 +88,61 @@ nav.top-nav {
 				margin:0 auto;
 				width:auto;
 			}			
-		}			
+		}	
 
-		input {
-			height:2rem;
-			width:100%;
-			@include border-radius();
+		#telegraph-message {
+			width:90%;
+			display:table-cell;
+			@include breakpoint($continent) {
+				width:80%;
+			}					
 
-
-			&[type="submit"] {
-				font-family: $font-normal;	
-				text-transform: uppercase;
-				background: $primary;
-				height:2.2rem;
-				color: $secondary;
-				letter-spacing: .1rem;
-				position: relative;
-				top:10px;
-				text-align:center;
-				@include border-radius(2px);
+			label,
+			span {
+				display: table-cell;
+				padding:0 1rem;
 			}
+
+			label {
+				width:8%;
+			}
+
+			span {
+				width:25%;
+				@include transition-property(width);
+				@include transition-duration(0.6s);
+				@include transition-timing-function(ease-in);				
+
+				&.active {
+					width:40%;
+				}
+
+				&.inactive {
+					width:10%;
+				}				
+			}
+
+			input {
+				border:none;
+				height:2rem;
+				width:100%;
+				@include border-radius();			
+			}		
+		}
+
+		input[type="submit"] {
+			display:table-cell;
+			font-family: $font-normal;	
+			text-transform: uppercase;
+			background: $primary;
+			height:2.2rem;
+			color: $secondary;
+			letter-spacing: .1rem;
+			text-align:center;
+			@include border-radius(2px);
 		}
 	}
+	
 
 	ul.menu {
 		@include pie-clearfix;

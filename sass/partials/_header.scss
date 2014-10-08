@@ -96,25 +96,28 @@ header.site-header {
 // Fallbacks
 .no-svg {
 
-	header {
+	header.site-header {
 
 		.site-title {
-			background-image: url('yogg-logo.png');
+			background-image: url('images/yogg-logo.png');
 			background-repeat: no-repeat;
 		  background-size: contain;
 		}
 
-		span[itemprop="telephone"] {
-			background-image: url('phone.png');
-			background-repeat: no-repeat;
-		  background-size: contain;
-		}
+		#header-meta {
 
-		span[itemprop="email"] {
-			background-image: url('envelope.png');
-			background-repeat: no-repeat;
-		  background-size: contain;
-		}		
+			a[itemprop="telephone"] {
+				background-image: url('images/phone.png');
+				background-repeat: no-repeat;
+			  background-size: contain;
+			}
+
+			a[itemprop="email"] {
+				background-image: url('images/envelope.png');
+				background-repeat: no-repeat;
+			  background-size: contain;
+			}	
+		}	
 	}
 }
 

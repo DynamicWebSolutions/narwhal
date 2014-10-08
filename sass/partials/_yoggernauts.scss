@@ -7,6 +7,7 @@ body.page-template-page-templatespage-subst-yoggernauts-php {
 
 		aside {
 			background: $white;
+			margin-bottom: 2rem;
 			@include span(4 narrow);
 
 			img {
@@ -23,8 +24,5 @@ body.page-template-page-templatespage-subst-yoggernauts-php {
 				text-indent: 0;
 			}
 		}
-
 	}
-
-	
 }
