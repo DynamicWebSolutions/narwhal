@@ -1,8 +1,6 @@
 jQuery(document).ready(function($){
  
- 
     var vargangrepp_frame;
- 
  
     $('#yogg-vargangrepp-button').click(function(e) {
  

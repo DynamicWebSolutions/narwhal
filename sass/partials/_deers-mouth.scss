@@ -1,4 +1,5 @@
 .deers-mouth {
+	@include container;
 	@include pie-clearfix;
 
 	h2 {
@@ -8,10 +9,10 @@
 	}
 
 	aside {
-		@include nested(12);
+		//@include nested(12);
 		@include span(12);
 		@include breakpoint($county) {
-			@include span(6 last);
+			@include span(6);
 		}
 
 		&:first-of-type {
@@ -19,7 +20,7 @@
 			margin-bottom: 1rem;
 			@include border-radius;
 			@include breakpoint($county) {
-				@include span(6 first);
+				@include span(6);
 			}
 		}
 

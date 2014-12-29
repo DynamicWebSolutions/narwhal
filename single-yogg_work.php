@@ -35,7 +35,7 @@ function yogg_work_single_entry_header() {
 
 	echo genesis_get_image( array(
 		'format'  => 'html',
-		'size'    => 'large',
+		'size'    => 'page-top',
 		'context' => 'archive',
 		'attr'    => genesis_parse_attr( 'entry-image' )
 	) );	

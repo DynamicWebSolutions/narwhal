@@ -67,9 +67,10 @@ function yogg_yoggernauts_widget_area() {
 }
 
 
-add_action( 'widgets_init', function(){
+add_action( 'widgets_init', 'yogg_user_profile_widget_init');
+function yogg_user_profile_widget_init() {
     register_widget( 'Yogg_User_Profile_Widget' );
-});
+}
 
 
 class Yogg_User_Profile_Widget extends WP_Widget {

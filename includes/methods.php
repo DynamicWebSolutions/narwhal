@@ -115,7 +115,7 @@ function yogg_subst_header() {
 		) 
 	);
 
-	if($subst) {
+	if($subst || $substImage) {
 		echo sprintf(
 			'<div id="subst-header">%s <h2>%s</h2></div>', 
 			$substImage, 
