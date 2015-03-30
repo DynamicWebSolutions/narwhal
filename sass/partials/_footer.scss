@@ -2,8 +2,11 @@ footer {
 	text-align:center;
 	background:$black;
 	color:$white;
-	@include container;
 	@include pie-clearfix;
+
+	.wrap {
+		@include container($max-container-width);		
+	}
 
 	a {
 		color:$white;
@@ -15,7 +18,6 @@ footer {
 	}
 
 	nav {
-		width:75%;
 		margin:0 auto;
 		padding:2rem 0;
 		@include pie-clearfix;

@@ -1,5 +1,5 @@
 .deers-mouth {
-	@include container;
+	@include container($max-container-width);
 	@include pie-clearfix;
 
 	h2 {

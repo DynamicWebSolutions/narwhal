@@ -5,7 +5,8 @@ nav.top-nav {
 	padding:1em 1em 0em 1em;
 	z-index: 11;
 	position: absolute;
-	width:100%;	
+	width:100%;
+
 
 	@include keyframes(open) {
     from { @include transform3d(translate(0, $nav-initial-position)); }
@@ -39,7 +40,7 @@ nav.top-nav {
 		padding:0 0.5rem 0 0;
 		font-size: 1.2rem;
 		display:none;
-		width:100%;
+		@include container($max-container-width);
 
 		@include breakpoint($county) {
 			display:table;
@@ -50,28 +51,7 @@ nav.top-nav {
 			height:16px;
 		}
 
-/*
-		span,
-		label,
-		input {
-			display: table-cell;
-			vertical-align: middle;
-			padding:0 0.5rem;
-			border:none;
-			text-align: right;
-		}
 
-		span {
-			width:10%;
-			@include transition-property(width);
-			@include transition-duration(0.6s);
-			@include transition-timing-function(ease-in);
-
-			&.active {
-				width:40%;
-			}
-		}
-*/
 		#telegraph-sounder {		
 			font-family: $font-bold;	
 			background:$black;
@@ -145,6 +125,7 @@ nav.top-nav {
 	
 
 	ul.menu {
+		@include container($max-container-width);	
 		@include pie-clearfix;
 
 		>li {

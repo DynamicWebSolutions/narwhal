@@ -7,6 +7,10 @@ header.site-header {
 	z-index:20;
 	line-height:1rem;
 
+	.wrap {
+		@include container($max-container-width);
+	}
+
 	a {
 		color:$white;
 	}

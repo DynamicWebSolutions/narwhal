@@ -9,9 +9,9 @@
 body.home {
 
 	#formaga-top {
-		@include container(10);	
-		@include squish(10%);		
+		@include container($max-container-width);
 		@include pie-clearfix;
+
 
 		h2 {
 			@extend .epsilon;
@@ -28,6 +28,7 @@ body.home {
 	}
 
 	#formaga-bottom {
+		@include container($max-container-width);		
 		@include pie-clearfix;
 
 		h3 {

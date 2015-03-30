@@ -8,6 +8,8 @@
 
 	ul {
 		@include pie-clearfix;
+		@include container($max-container-width);
+
 
 		li {
 			text-align:center;

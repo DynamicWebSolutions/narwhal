@@ -1,10 +1,11 @@
 .single-yogg_work {
 
 	article {
-		@include container;
 
 		header {
 			text-align:center;
+			@include container($max-container-width);
+
 
 			h1 {
 				padding:2rem;
@@ -19,10 +20,14 @@
 			}
 		}
 
-		.entry-content {
+		.wrap {
 			background:$tertiary;
-			padding:2rem;
-			@include span(12 last);
+
+			.entry-content {
+				@include container($max-container-width);
+				//@include span(12 last);
+
+			}
 		}
 
 		&.has-gallery {

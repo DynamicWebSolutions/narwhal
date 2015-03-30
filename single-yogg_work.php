@@ -53,20 +53,12 @@ function yogg_work_single_gallery_style( $styles ) {
 
 add_action('genesis_before_entry_content','yogg_work_single_before_entry_content');
 function yogg_work_single_before_entry_content() {
-	global $post;
+	echo '<div class="wrap">';
+}
 
-	$attachments = get_children( array(
-		'post_parent'    => $post->ID,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image'
-	) );
-
-	if(0 !== count($attachments)) {
-		$featuredImage = get_post_thumbnail_id();
-		echo do_shortcode("[gallery size='large' columns='1' link='none' exclude={$featuredImage}]");
-	}
-
+add_action('genesis_after_entry_content','yogg_work_single_after_entry_content');
+function yogg_work_single_after_entry_content() {
+	echo '</div> <!-- CLOSES WRAP -->';
 }
 
 
