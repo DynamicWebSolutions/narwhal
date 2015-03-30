@@ -94,7 +94,7 @@ function yogg_admin_js() {
 
     $screen = get_current_screen();
 
-    $screens = array('post', 'profile');
+    $screens = array('post', 'user-edit', 'profile');
 
     if(in_array($screen->base, $screens)) :
 
