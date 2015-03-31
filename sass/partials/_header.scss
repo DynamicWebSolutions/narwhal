@@ -1,14 +1,15 @@
 header.site-header {
-	height:3.5rem;
 	background: $primary;
 	color:$white;
-	padding:1rem 1.5rem;
 	position: relative;
 	z-index:20;
-	line-height:1rem;
 
 	.wrap {
+		padding: 0.25rem 1rem;
 		@include container($max-container-width);
+		@include breakpoint($continent + 10) {
+			padding: 0.25rem 0rem;
+		}			
 	}
 
 	a {
@@ -16,47 +17,54 @@ header.site-header {
 	}
 
 	.title-area {
-		width:6rem;
 		float:left;
-	}	
+		width:200px;
 
-	.site-title {
-		margin:0;
-		background-image: inline-image('yogg-logo.svg');
-		background-repeat: no-repeat;
-	  background-size: contain;		
 
-		a {
-			text-transform: lowercase;
-			text-indent: -9999px;
-			line-height: 2rem;
-			display:block;
+		.site-title {
+			margin:0;
+			background-image: inline-image('yogg-logo.svg');
+			background-repeat: no-repeat;
+		  background-size: contain;	
+		  font-size:24px;
+		  margin:0;
+			position: relative;
+			top: 3px;		  
+
+			a {
+				font-size:24px;	
+				text-transform: lowercase;
+				text-indent: -9999px;
+				display:block;
+			}
+			
 		}
 	}
 
 	#header-meta {
 		float:right;
+		display: inline-block;
 
 		a {
+		  font-size:18px;	
 			display: inline-block;
-			position:relative;
+			text-transform: lowercase;
 			text-indent: -9999px;
-			min-height:2rem;
-			min-width:2rem;
-			top:-0.75rem;
-			margin-right:2rem;
-		}
+		}			
+
 
 		a[itemprop="telephone"] {
 			background-image: inline-image('phone.svg');
 			background-repeat: no-repeat;
 		  background-size: contain;
 		  background-position: center;
+		  width:18px;
 
 			@include breakpoint($county) {
-				top:0rem;
+				top:0;
 				text-indent: 0px;
 				background-image: none;
+				width:auto;
 			}		
 		}
 
@@ -66,31 +74,33 @@ header.site-header {
 			background-repeat: no-repeat;
 		  background-size: contain;
 		  background-position: center;
+		  width:30px;
+		  margin:0 10px;
+
 
 			@include breakpoint($county) {
 				top:0rem;
 				text-indent: 0px;
 				background-image: none;
+				width:auto;
 			}	
 		}			
 
 		#hamburger {
-			display:inline-block;
+			display:block;
 		  position: relative;
-		  width: 2.5rem;
-		  height:1.3rem;
-		  top:-0.5rem;
 		  cursor: pointer;
+		  float:right;
+		  width:24px;
+		  top:4px;
 
 		  &:before {
 			  content: "";
 			  position: absolute;
-			  top: 0.25rem;
-			  left: 0;
-			  width: 2.5rem;
-			  height: 0.370rem;
-			  border-top: 1.125rem double $white;
-			  border-bottom: 0.4rem solid $white;	  	
+			  width: 100%;
+			  height: 4px;
+			  border-top: 12px double $white;
+			  border-bottom: 4px solid $white;	  	
 		  }
 		}
 	}

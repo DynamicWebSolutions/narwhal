@@ -2,7 +2,7 @@ nav.top-nav {
 
 	$nav-initial-position: -750px;
 	background:$lightPrimary;
-	padding:1em 1em 0em 1em;
+	padding:1rem 1rem 0rem 1rem;
 	z-index: 11;
 	position: absolute;
 	width:100%;
@@ -36,19 +36,20 @@ nav.top-nav {
 
 	form {
 		background: $overlay;
-		letter-spacing: .1rem;
+		letter-spacing: 0.1rem;
 		padding:0 0.5rem 0 0;
-		font-size: 1.2rem;
 		display:none;
 		@include container($max-container-width);
 
 		@include breakpoint($county) {
 			display:table;
+			height:50px;
 		}
 
 		img.ajax-loader {
 			width:16px;
 			height:16px;
+			display:none;
 		}
 
 
@@ -56,23 +57,26 @@ nav.top-nav {
 			font-family: $font-bold;	
 			background:$black;
 			color:$white;
-			height:3rem;
-			line-height:2.5;
 			text-align: center;
 			display:table-caption;
-			margin:0 auto 0.5rem auto;
 			width:100%;
+			margin:0 auto 0.5rem auto;
 
 			@include breakpoint($continent) {
 				display:table-cell;
 				margin:0 auto;
 				width:auto;
+				padding:0.5rem 0;
+				vertical-align: middle;
+				width:15%;
 			}			
 		}	
 
 		#telegraph-message {
 			width:90%;
 			display:table-cell;
+			vertical-align: middle;
+
 			@include breakpoint($continent) {
 				width:80%;
 			}					
@@ -81,6 +85,7 @@ nav.top-nav {
 			span {
 				display: table-cell;
 				padding:0 1rem;
+				vertical-align: middle;
 			}
 
 			label {
@@ -104,7 +109,7 @@ nav.top-nav {
 
 			input {
 				border:none;
-				height:2rem;
+				height:36px;
 				width:100%;
 				@include border-radius();			
 			}		
@@ -112,14 +117,21 @@ nav.top-nav {
 
 		input[type="submit"] {
 			display:table-cell;
+			vertical-align: middle;
 			font-family: $font-normal;	
 			text-transform: uppercase;
 			background: $primary;
-			height:2.2rem;
+			height:36px;
 			color: $secondary;
 			letter-spacing: .1rem;
 			text-align:center;
-			@include border-radius(2px);
+			position: relative;
+			top:5px; 
+			border:none;
+			padding:0 1rem;
+			font-size: 1rem;
+
+			@include border-radius();
 		}
 	}
 	
@@ -140,14 +152,6 @@ nav.top-nav {
 				padding-bottom: 0.3rem;
 				@include span(2);
 			}
-
-			@include breakpoint($country) {
-				min-height: 180px;
-			}
-
-			&:first-child {		
-				padding-top:0;
-			}			
 
 			&:last-child {		
 				border-right:none;

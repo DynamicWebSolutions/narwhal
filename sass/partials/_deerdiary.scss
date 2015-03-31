@@ -26,6 +26,10 @@
 				@include push(0);
 			}
 
+			&.genesis-grid-odd {
+				clear:left;
+			}			
+
 			h2 {
 				@extend .gamma;
 			}

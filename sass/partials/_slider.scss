@@ -14,7 +14,6 @@
 			background:none;
 
 			h2 {
-				font-size:5rem;
 				padding-bottom: 1rem;
 			}
 		}
@@ -34,7 +33,6 @@
 					background:$white;
 					text-indent: 0;
 					text-align:center;
-					font-size:2rem;
 					@include border-radius(2rem);
 				}
 
