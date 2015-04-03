@@ -1,5 +1,9 @@
 .blog {
-	font-family: $font-sanserif-normal;
+	//font-family: $font-sanserif-normal;
+
+	h1 {
+		@extend .beta;
+	}
 
 	a {
 		color: $primary;
@@ -16,7 +20,8 @@
 		article {
 			background:$white;
 			margin-bottom:3rem;
-			@include span(12);			
+			@include span(12);	
+					
 			@include breakpoint($country) {
 				@include span(5 first);
 				@include push(1);

@@ -19,8 +19,11 @@ body.single-post {
 		background: $tertiary;
 		padding:3rem;
 
+
 		main {
 			background: $white;
+			@include container($max-container-width);
+			
 
 			.entry-title,
 			.entry-content,

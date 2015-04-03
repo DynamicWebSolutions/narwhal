@@ -4,17 +4,21 @@
 
 		header {
 			text-align:center;
+			@extend .delta;
 			@include container($max-container-width);
 
 
 			h1 {
-				padding:2rem;
-				@extend .gamma;
+				display:inline-block;
+				margin:2rem 0;
+				border-bottom: 1px solid $black;
+				@extend .beta;
 			}
 		}
 
 		.gallery {
 			@include span(12);
+			
 			@include breakpoint($country) {
 				@include span(8);
 			}

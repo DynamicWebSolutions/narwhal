@@ -15,6 +15,12 @@
 			text-align:center;
 			border-bottom: 1px solid $tertiary;
 			padding:1rem 0;
+
+			&.current_page_item a {
+				color:$gray;
+				font-style: italic;
+			}
+
 			@include breakpoint($country) {
 				padding:0;
 				border-right: 1px solid $tertiary;

@@ -109,8 +109,8 @@ class Yogg_User_Profile_Widget extends WP_Widget {
 
         echo sprintf(
             '%s 
-            <a href="%s">%s %s</a>
-            <p><em>%s</em></p>            
+            <h2><a href="%s">%s %s</a></h2>
+            <h3><em>%s</em></h3>            
             %s
             <p><a href="https://twitter.com/%s">@%s</a></p>
             <p><a href="%s">%s</a></p>',

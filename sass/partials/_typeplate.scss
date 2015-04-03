@@ -620,19 +620,20 @@ h6 {
 
 // $Styles $Parargraphs
 // -------------------------------------//
+// Not indenting paragraphs as per yogg request
 
-p {
-	margin: auto auto $indent-val;
+// p {
+// 	margin: auto auto $indent-val;
 
-	// Conditonal Check For Paragraph Styling
-	@if $paragraph-vertical-whitespace == false {
-		& + p {
-			//siblings indentation
-			text-indent: $indent-val;
-			margin-top: -$indent-val;
-		}
-	}
-}
+// 	// Conditonal Check For Paragraph Styling
+// 	@if $paragraph-vertical-whitespace == false {
+// 		& + p {
+// 			//siblings indentation
+// 			text-indent: $indent-val;
+// 			margin-top: -$indent-val;
+// 		}
+// 	}
+// }
 
 
 // $Styles $Hyphenation

@@ -3,16 +3,29 @@ body.page-template-page-templatespage-subst-yoggernauts-php {
 	#yoggernauts-widget	{
 		background: $tertiary;
 		padding:0 1rem;
-		@include container;
+		@include container($max-container-width);
+
 
 		aside {
 			background: $white;
 			margin-bottom: 2rem;
-			@include span(4 narrow);
+
+			@include breakpoint($county) {
+				@include span(4 narrow first);
+
+				&:nth-of-type(3n+1) {
+					clear:left;
+				}
+			}			
 
 			img {
 				width:100%;
 				height:auto;
+			}
+
+			h2,
+			h3 {
+				padding:0 2rem;
 			}
 
 			>p,
