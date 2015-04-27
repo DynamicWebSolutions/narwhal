@@ -11,7 +11,7 @@ add_action( 'genesis_entry_footer', 'yogg_entry_footer_markup_open', 5);
 add_action( 'genesis_entry_footer', 'yogg_entry_footer_markup_close', 15);
 add_action('genesis_entry_footer', 'yogg_next_prev_article_links');
 
-add_filter('post_class', 'yogg_gallery_post_class');
+//add_filter('post_class', 'yogg_gallery_post_class');
 
 
 add_filter('the_title', 'yogg_post_title_output');
