@@ -11,16 +11,18 @@
 			h1 {
 				display:inline-block;
 				margin:2rem 0;
-				border-bottom: 1px solid $black;
 				@extend .beta;
 			}
-		}
 
-		.gallery {
-			@include span(12);
-			
-			@include breakpoint($country) {
-				@include span(8);
+			img {
+				padding:0.5rem;
+				border:1px solid $black;
+			}
+
+			p {
+				width:80%;
+				margin:0 auto;
+				@extend .delta;
 			}
 		}
 
@@ -28,18 +30,17 @@
 			background:$tertiary;
 
 			.entry-content {
+				padding:1rem;
 				@include container($max-container-width);
-				//@include span(12 last);
 
-			}
-		}
-
-		&.has-gallery {
-			.entry-content {
-				@include span(12);
-				@include breakpoint($country) {
-					@include span(4 last);
-				}				
+				.gallery {
+					@include span(12);
+					
+					@include breakpoint($country) {
+						padding-right:2rem;
+						@include span(8);
+					}
+				}
 			}
 		}
 
@@ -49,20 +50,28 @@
 
 			.page-navigation {
 				padding:3rem 0;
-				@include span(4);
-				@include push(4);
+				@include span(10);
+				@include push(1);
+
+				@include breakpoint($country) {
+					@include span(6);
+					@include push(3);
+				}				
+
 
 				a {
 					color:$primary;
 					background: $secondary;
 					display:block;
 					height:8rem;
+					padding:1rem;
 
 					span {
-						@extend .beta;
+						@extend .delta;
 					}
 
 					p {
+						padding: 0;
 						@extend .epsilon;
 					}
 

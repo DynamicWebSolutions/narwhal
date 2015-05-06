@@ -7,6 +7,8 @@
 	@include pie-clearfix;
 
 	ul {
+	  position: relative;
+	  left: -10px;	// manually centering.	
 		@include pie-clearfix;
 		@include container($max-container-width);
 

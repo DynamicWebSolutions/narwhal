@@ -9,7 +9,7 @@ add_action( 'genesis_after_content_sidebar_wrap', 'yogg_vargangrepp_display_post
 add_action( 'genesis_entry_footer', 'genesis_prev_next_post_nav' );
 add_action( 'genesis_entry_footer', 'yogg_entry_footer_markup_open', 5);
 add_action( 'genesis_entry_footer', 'yogg_entry_footer_markup_close', 15);
-add_action('genesis_entry_footer', 'yogg_next_prev_article_links');
+add_action( 'genesis_entry_footer', 'yogg_next_prev_article_links');
 
 //add_filter('post_class', 'yogg_gallery_post_class');
 

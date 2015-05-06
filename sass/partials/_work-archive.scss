@@ -38,6 +38,7 @@
 				  text-align: center;
 					background-image: inline-image('yogg-banner.svg');
 					background-repeat: no-repeat;	
+					max-width:80%;
 
 
 					a {
@@ -45,12 +46,7 @@
 					  margin-top: 1rem;
 						@extend .zeta;
 					}
-
-
-
 				}
-
-
 			}		
 
 
