@@ -1,4 +1,4 @@
-.page-id-33 {
+body.page-id-31 {
 
 	article {
 
@@ -13,12 +13,30 @@
 	}
 
 	.entry-content {
-		@extend %formaga;
+		//@extend %formaga;
+
+
+		#formaga-top {
+			@include container(10);	
+			
+			>div {
+				text-align:center;
+				@include span(10);
+				@include breakpoint($county) {
+					@include span(5);
+				}				
+				@include breakpoint($country) {
+					@include span(2);
+				}
+				
+			}			
+		}
+
 	}	
 }
 
 
-.parent-pageid-33 {
+.parent-pageid-31 {
 
 	.middle-nav {
 

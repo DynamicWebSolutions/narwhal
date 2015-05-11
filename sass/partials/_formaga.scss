@@ -6,74 +6,73 @@
 	@include pie-clearfix;
 }
 
-body.home {
 
-	#formaga-top {
-		@include container($max-container-width);
-		@include pie-clearfix;
+#formaga-top {
+	@include container($max-container-width);
+	@include pie-clearfix;
 
 
-		h2 {
-			@extend .epsilon;
-		}		
+	h2 {
+		@extend .epsilon;
+	}		
 
-		>div {
-			text-align:center;
-			@include span(5 of 10);
-			@include breakpoint($country) {
-				@include span(2 of 10);
-			}
-			
+	>div {
+		text-align:center;
+		@include span(5 of 10);
+		@include breakpoint($country) {
+			@include span(2 of 10);
 		}
-	}
-
-	#formaga-bottom {
-		@include container($max-container-width);		
-		@include pie-clearfix;
-
-		h3 {
-			color: $primary;
-			padding:2rem 0;
-			@extend .beta;			
-		}
-
-		>div {
-			text-align:center;
-			@include span(isolate 8 at 3);
-		}		
+		
 	}
 }
 
 
+
+#formaga-bottom {
+	@include container($max-container-width);		
+	@include pie-clearfix;
+
+	h3 {
+		color: $primary;
+		padding:2rem 0;
+		@extend .beta;			
+	}
+
+	>div {
+		text-align:center;
+		@include span(isolate 8 at 3);
+	}		
+}
+
+
+
 body.page-template-page-templatespage-formaga-php {
 
+	section {
+		padding:1rem 0;
+		background:$tertiary;
+	}
+
 	.entry-content {
-		padding:1rem 0;		
-		@include container(12);	
+		max-width: 100%;
+		background:$tertiary;
 
-		>p {
-			@include span(12);
-		}
+		p {
+			@include container($max-container-width);		
 
-		#formaga-top {
-			@include squish(1%);		
-			@include pie-clearfix;
-
-			h2 {
-				@extend .epsilon;
-			}		
-
-			>div {
-				text-align:center;
-				@include span(12);
-				@include breakpoint($county) {
-					@include span(6);
-				}				
-				@include breakpoint($country) {
-					@include span(4);
-				}
-				
+			@include breakpoint($municipality) {
+				padding:0em 1.5em;
+			}					
+			@include breakpoint($county) {
+				padding:0em 3em;
+			}			
+			@include breakpoint($country) {
+				padding:0em 6em;
 			}
+			@include breakpoint($continent) {
+				padding:0em 12em;
+			}			
 		}
 	}
+	
 }

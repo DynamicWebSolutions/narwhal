@@ -20,15 +20,18 @@
 	}	
 
 	article {
-		@include container($max-container-width);		
-
+			
 		h1 {
 			text-transform: uppercase;
+			text-align: center;
+			padding:1rem 0;
 			@extend .gamma;
 		}
 
 		.entry-content {
 			padding:3em 1em;
+			@include container($max-container-width);				
+
 
 			@include breakpoint($municipality) {
 				padding:3em 1.5em;

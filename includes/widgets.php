@@ -113,7 +113,6 @@ class Yogg_User_Profile_Widget extends WP_Widget {
             <h2><a href="%s">%s %s</a></h2>
             <h3><em>%s</em></h3>            
             %s
-            <p><a href="https://twitter.com/%s">@%s</a></p>
             <p><a href="%s">%s</a></p>',
             wp_get_attachment_image( get_the_author_meta( 'author_profile_avatar', $instance['user'] ), 'portrait' ),
             get_author_posts_url( $instance['user'] ),
@@ -121,8 +120,6 @@ class Yogg_User_Profile_Widget extends WP_Widget {
             get_the_author_meta( 'user_lastname', $instance['user'] ),            
             get_the_author_meta( 'nickname', $instance['user'] ),            
             wpautop( get_the_author_meta( 'description', $instance['user'] ) ),
-            get_the_author_meta( 'twitter', $instance['user'] ),
-            get_the_author_meta( 'twitter', $instance['user'] ),
             get_the_author_meta( 'user_url', $instance['user'] ),
             get_the_author_meta( 'user_url', $instance['user'] )
         );
@@ -244,7 +241,7 @@ class Yogg_Featured_Page extends WP_Widget {
             // ) );
 
             $vargangrepp = get_post_meta( $instance['page_id'], '_yogg_vargangrepp', true ); 
-            $image       = wp_get_attachment_image( $vargangrepp['id'], $instance['image_size'] );
+            $image       = (isset($vargangrepp['id'])) ? wp_get_attachment_image( $vargangrepp['id'], $instance['image_size'] ) : false;
                        
 
             if ( $instance['show_image'] && $image )
