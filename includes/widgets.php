@@ -59,6 +59,7 @@ function yogg_sidebar_init() {
     ) );              
 }
 
+
 function yogg_yoggernauts_widget_area() {
     genesis_widget_area ('yoggernauts', array(
         'before' => '<div id="yoggernauts-widget">',
