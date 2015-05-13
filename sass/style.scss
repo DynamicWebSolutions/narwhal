@@ -37,26 +37,13 @@
 	@include box-sizing();
 }
 
-html {
-	// font-size:80%;
-	// overflow-y: scroll;	
-
-	// @include breakpoint($municipality) {
-	// 	font-size: 100%;
-	// }	
-	
-	// @include breakpoint($county) {
-	// 	font-size: 112.5%;
-	// }			
-
-
-}
 
 body {
 	font-family: $font-normal;
 	font-style: normal;
 	font-weight: normal;
 	background: $white;
+	@include css-hyphens(none);
 }
 
 div.site-container {
