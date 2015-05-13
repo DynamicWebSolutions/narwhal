@@ -48,31 +48,32 @@
 
 body.page-template-page-templatespage-formaga-php {
 
-	section {
-		padding:1rem 0;
+	main {
 		background:$tertiary;
+
+		> article > header {
+			background: $white;
+		}
 	}
 
+
 	.entry-content {
-		max-width: 100%;
-		background:$tertiary;
 
-		p {
-			@include container($max-container-width);		
+		@include container($max-container-width);		
 
-			@include breakpoint($municipality) {
-				padding:0em 1.5em;
-			}					
-			@include breakpoint($county) {
-				padding:0em 3em;
-			}			
-			@include breakpoint($country) {
-				padding:0em 6em;
-			}
-			@include breakpoint($continent) {
-				padding:0em 12em;
-			}			
+		@include breakpoint($municipality) {
+			padding:0em 1.5em;
+		}					
+		@include breakpoint($county) {
+			padding:0em 3em;
+		}			
+		@include breakpoint($country) {
+			padding:0em 6em;
 		}
+		@include breakpoint($continent) {
+			padding:0em 12em;
+		}			
+		
 	}
 	
 }

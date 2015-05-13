@@ -43,25 +43,28 @@ function yogg_subst_do_meta_box( $post ) {
 
 
 function yogg_vargangrepp_do_meta_box( $post ) {
+
+	$value  = get_post_meta( $post->ID, '_yogg_vargangrepp', true );
+	$fields = ($value) ? $value : array('id' => null, 'description' => null);
+	$img    = ($fields['id']) ? wp_get_attachment_image( $fields['id'], 'thumbnail' ) : null;
+
 	wp_nonce_field( 'yogg_vargangrepp_meta_box', 'yogg_vargangrepp_meta_box_nonce' );
 
-	$value = get_post_meta( $post->ID, '_yogg_vargangrepp', true );
-
-	$fields = ($value) ? $value : array('id' => null, 'description' => null);
-
-	echo '<div id="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">';
-
-		if($fields['id']) :
-			echo wp_get_attachment_image( $fields['id'], 'thumbnail' );
-		endif;
-
-	echo '</div>';
-
-  echo '<input style="width:150px;margin:0 auto;display:block;" type="button" id="yogg-vargangrepp-button" class="button" value="Choose your monster." />';
-  echo '<input type="hidden" id="vargangrepp-id" name="yogg_vargangrepp_id"class="button" value="' . esc_attr( $fields['id'] ) . '" />';
-
-	echo '<p><label for="yogg_vargangrepp_text"><b>This message will be dispalyed underneath the monster.</b></label></p>';
-	echo '<p><input class="large-text" type="text" id="yogg_subst" name="yogg_vargangrepp_description" value="' . esc_attr( $fields['description'] ) . '" /></p>';
+	echo sprintf(
+		'<div id="vargangrepp-metabox-%s" class="vargangrepp-metabox">
+			<div class="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">
+				%s
+			</div>
+			<input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster." />
+			<input type="hidden" name="yogg_vargangrepp_id" class="vargangrepp-id" value="%s" />		
+			<p><label for="yogg_vargangrepp_text"><b>This message will be dispalyed underneath the monster.</b></label></p>			
+			<p><input class="large-text" type="text" id="yogg_subst" name="yogg_vargangrepp_description" value="%s" /></p>	
+		</div>',
+		$post->ID,
+		$img,
+		esc_attr( $fields['id'] ),
+		esc_attr( $fields['description'] )
+	);
 }
 
 

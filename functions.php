@@ -67,6 +67,7 @@ add_image_size('archive-grid', 200, 200, true);
 add_image_size('page-top', 1150, 300, true);
 add_image_size('slider', 1150, 500, true);
 add_image_size('portrait', 400, 600, true);
+add_image_size('vargangrepp', 600, 300, false);
 
 
 
@@ -98,10 +99,27 @@ function yogg_admin_js() {
 
     if(in_array($screen->base, $screens)) :
 
-        wp_enqueue_media();
+        //wp_enqueue_media();
         wp_register_script('yogg-admin', get_stylesheet_directory_uri() . '/js/admin/admin.js', 'jquery', '1.0', true);
         wp_enqueue_script('yogg-admin');
     endif;
+}
+
+
+add_action('wp_footer', 'yogg_fitvid', 100);
+function yogg_fitvid() {
+
+if(is_singular(array('yogg_work'))) {
+
+    echo '
+        <script>
+          jQuery(document).ready(function(){
+            jQuery("article").fitVids();
+          });
+        </script>';
+}
+
+
 }
 
 

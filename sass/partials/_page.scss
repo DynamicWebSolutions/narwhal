@@ -22,10 +22,9 @@
 	article {
 			
 		h1 {
-			text-transform: uppercase;
 			text-align: center;
-			padding:1rem 0;
-			@extend .gamma;
+			padding:1.5rem 0;
+			@extend .beta;
 		}
 
 		.entry-content {

@@ -177,6 +177,7 @@ class Yogg_Featured_Page extends WP_Widget {
             'title'           => '',
             'page_id'         => '',
             'show_image'      => 0,
+            'image_id'        => NULL,
             'image_alignment' => '',
             'image_size'      => '',
             'show_title'      => 0,
@@ -196,8 +197,17 @@ class Yogg_Featured_Page extends WP_Widget {
             'height'  => 250,
         );
 
+        add_action('admin_enqueue_scripts', array($this, 'admin_scripts'));
+     
         parent::__construct( 'yogg-featured-page', __( 'Yogg - Featured Page', 'genesis' ), $widget_ops, $control_ops );
 
+    }
+
+
+    function admin_scripts() {
+        wp_enqueue_media();
+        wp_register_script('yogg-admin', get_stylesheet_directory_uri() . '/js/admin/admin.js', 'jquery', '1.0', true);
+        wp_enqueue_script('yogg-admin');           
     }
 
     /**
@@ -234,15 +244,8 @@ class Yogg_Featured_Page extends WP_Widget {
                 'context' => 'entry',
             ) );
 
-            // $image = genesis_get_image( array(
-            //     'format'  => 'html',
-            //     'size'    => $instance['image_size'],
-            //     'context' => 'featured-page-widget',
-            //     'attr'    => genesis_parse_attr( 'entry-image-widget' ),
-            // ) );
 
-            $vargangrepp = get_post_meta( $instance['page_id'], '_yogg_vargangrepp', true ); 
-            $image       = (isset($vargangrepp['id'])) ? wp_get_attachment_image( $vargangrepp['id'], $instance['image_size'] ) : false;
+            $image = (isset($instance['image_id'])) ? wp_get_attachment_image( $instance['image_id'], $instance['image_size'] ) : false;
                        
 
             if ( $instance['show_image'] && $image )
@@ -329,6 +332,7 @@ class Yogg_Featured_Page extends WP_Widget {
 
         //* Merge with defaults
         $instance = wp_parse_args( (array) $instance, $this->defaults );
+        $img      = ($instance['image_id']) ? wp_get_attachment_image( $instance['image_id'], 'thumbnail' ) : null;
 
         ?>
         <p>
@@ -347,6 +351,23 @@ class Yogg_Featured_Page extends WP_Widget {
             <input id="<?php echo $this->get_field_id( 'show_image' ); ?>" type="checkbox" name="<?php echo $this->get_field_name( 'show_image' ); ?>" value="1"<?php checked( $instance['show_image'] ); ?> />
             <label for="<?php echo $this->get_field_id( 'show_image' ); ?>"><?php _e( 'Show Vargangrepp', 'genesis' ); ?></label>
         </p>
+
+        <?php
+            echo sprintf(
+                '<div id="%s" class="vargangrepp-metabox">
+                    <div id="" class="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">
+                        %s
+                    </div>
+                    <input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster." />
+                    <input type="hidden" name="%s" class="vargangrepp-id" value="%s" />     
+                </div>',
+                $this->get_field_id( 'id' ),
+                $img,
+                $this->get_field_name( 'image_id' ),
+                esc_attr( $instance['image_id'] )
+            );
+        ?>
+    
 
         <p>
             <label for="<?php echo $this->get_field_id( 'image_size' ); ?>"><?php _e( 'Image Size', 'genesis' ); ?>:</label>

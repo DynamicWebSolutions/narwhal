@@ -10,7 +10,7 @@ function yogg_vargangrepp_display_post_meta() {
 		echo '<section class="vargangrepp">'; 
 
 			if($vargangrepp['id']) :
-				echo wp_get_attachment_image( $vargangrepp['id'], 'thumbnail' );
+				echo wp_get_attachment_image( $vargangrepp['id'], 'vargangrepp' );
 			endif;	
 
 			if($vargangrepp['description']) :
