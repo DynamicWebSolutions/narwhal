@@ -19,8 +19,11 @@
 			article {
 				margin-bottom:0.8333%;
 				position: relative;
-				@include span(6);
+				@include span(12);
 
+				@include breakpoint($municipality) {
+					@include span(6);
+				}		
 				@include breakpoint($country) {
 					@include span(3);
 				}				

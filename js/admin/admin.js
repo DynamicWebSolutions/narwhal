@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
- 
+
   var vargangrepp_frame;
 
   $('.vargangrepp-metabox .yogg-vargangrepp-button').click(function(e) {

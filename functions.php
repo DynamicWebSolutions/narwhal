@@ -130,6 +130,12 @@ if(is_singular(array('yogg_work'))) {
  **
  **
 **/ 
+add_action('wp_head', 'yogg_viewport');
+function yogg_viewport() {
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';    
+}
+
+
 add_filter('body_class', 'yogg_menu_item_count');
 add_action('genesis_before', 'yogg_sitewide_mods');
 function yogg_sitewide_mods() {

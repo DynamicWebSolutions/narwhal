@@ -8,10 +8,11 @@ function yogg_user_avatar($user) {
 
 	$avatar = ($avatar) ? $avatar : null;	
 
+	echo '<div class="vargangrepp-metabox">';
 	echo '<h3>Author Avatar</h3>';
 	echo '<p><span class="description">Used for yoggernauts page.</span></p>';
 
-	echo '<div id="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">';
+	echo '<div class="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">';
 
 		if($avatar) :
 			echo wp_get_attachment_image( $avatar, 'thumbnail' );
@@ -19,9 +20,9 @@ function yogg_user_avatar($user) {
 
 	echo '</div>';
 
-  echo '<input style="width:150px;margin:0 auto;display:block;" type="button" id="yogg-vargangrepp-button" class="button" value="Choose your monster." />';
-  echo '<input type="hidden" id="vargangrepp-id" name="yogg_vargangrepp_id"class="button" value="' . esc_attr( $avatar ) . '" />';	
-
+  echo '<input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button" class="button" value="Choose your monster." />';
+  echo '<input type="hidden" class="vargangrepp-id" name="yogg_vargangrepp_id" value="' . esc_attr( $avatar ) . '" />';	
+	echo '</div>';
 }
 
 
