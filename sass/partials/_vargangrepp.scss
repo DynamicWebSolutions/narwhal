@@ -1,28 +1,38 @@
 .vargangrepp {
-		clear:both;
-		background:$primary;
-		color: $white;
-		text-align:center;
-		padding:3rem;
-		@include container;
-		@include pie-clearfix;
+	clear:both;
+	background:$primary;
+	color: $white;
+	text-align:center;
+	padding:3rem;
+	@include container;
+	@include pie-clearfix;
 
-		p {
-			margin:0 auto;
-			width:75%;
+	p {
+		margin:0 auto;
+		width:75%;
+	}
+
+	a {
+		color:$white;
+	}
+
+	img {
+		@include span(12);
+		height: auto;
+
+		@include breakpoint($country) {
+			@include span(8);
+			@include push(2);
+		}					
+	}
+}
+
+body.home {
+	.vargangrepp {
+
+		aside {
+			clear:both;
 		}
 
-		a {
-			color:$white;
-		}
-
-		img {
-			@include span(12);
-			height: auto;
-
-			@include breakpoint($country) {
-				@include span(8);
-				@include push(2);
-			}					
-		}
+	}
 }

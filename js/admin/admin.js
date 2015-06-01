@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
     $this = $(e.target);
 
     if (! $this.is('.vargangrepp-metabox .yogg-vargangrepp-button')) {
-      return false;
+      return true;
     }
 
     preview  = $this.parent().find('.vargangrepp-preview');
@@ -68,7 +68,7 @@ jQuery(document).ready(function($){
     $this = $(e.target);
 
     if (! $this.is('.vargangrepp-metabox .yogg-vargangrepp-button-remove')) {
-      return false;
+      return true;
     }
 
     preview  = $this.parent().find('.vargangrepp-preview');
