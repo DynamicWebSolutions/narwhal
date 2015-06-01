@@ -74,7 +74,7 @@ function yogg_homepage_after_content_sidebar_wrap() {
   echo '</section>'; 	
 
   echo '<section class="deers-mouth">
-				  <h2>From the deer&apos;s mouth</h2>
+				  <h2>From the deer&rsquo;s mouth</h2>
 
 				  <aside>';
 

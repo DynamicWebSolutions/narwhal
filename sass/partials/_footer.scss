@@ -6,6 +6,15 @@ footer {
 
 	.wrap {
 		@include container($max-container-width);		
+
+		.creds {
+			display:inline-block;
+
+			@include breakpoint($county) {
+				display:inline;
+			}
+
+		}
 	}
 
 	a {
@@ -26,8 +35,14 @@ footer {
 		ul {
 
 			li {
-				padding:0 1rem;
-				display:inline-block;
+				padding:1rem 0;
+				display:block;
+
+				@include breakpoint($county) {
+					padding:0 1rem;
+					display:inline;
+				}
+
 			}			
 		}
 

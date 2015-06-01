@@ -176,6 +176,7 @@ class Yogg_Featured_Page extends WP_Widget {
         $this->defaults = array(
             'title'           => '',
             'page_id'         => '',
+            'link_image'      => 0,
             'show_image'      => 0,
             'image_id'        => NULL,
             'image_alignment' => '',
@@ -246,14 +247,19 @@ class Yogg_Featured_Page extends WP_Widget {
 
 
             $image = (isset($instance['image_id'])) ? wp_get_attachment_image( $instance['image_id'], $instance['image_size'] ) : false;
-                       
+            $title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis' );
+   
 
-            if ( $instance['show_image'] && $image )
+            if ( $instance['show_image'] && $image && $instance['link_image']) {
                 printf( '<a href="%s" title="%s" class="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), esc_attr( $instance['image_alignment'] ), $image );
+            }
+            else {
+                printf( '<span class="%s">%s</span>', esc_attr( $instance['image_alignment'] ), $image );
+            }
 
-            if ( ! empty( $instance['show_title'] ) ) {
 
-                $title = get_the_title() ? get_the_title() : __( '(no title)', 'genesis' );
+
+            if ( ! empty( $instance['show_title'] ) &&  $instance['link_image'] ) {
 
                 if ( genesis_html5() )
                     printf( '<header class="entry-header"><h2 class="entry-title"><a href="%s">%s</a></h2></header>', get_permalink(), esc_html( $title ) );
@@ -261,6 +267,18 @@ class Yogg_Featured_Page extends WP_Widget {
                     printf( '<h2><a href="%s">%s</a></h2>', get_permalink(), esc_html( $title ) );
 
             }
+            elseif( ! empty( $instance['show_title'] ) ) {
+
+                if ( genesis_html5() )
+                    printf( '<header class="entry-header"><h2 class="entry-title">%s</h2></header>', esc_html( $title ) );
+                else
+                    printf( '<h2>%s</h2>', esc_html( $title ) );
+            }
+            else {
+                // Silence is golden
+            }
+
+
 
             if ( ! empty( $instance['show_content'] ) ) {
 
@@ -345,6 +363,12 @@ class Yogg_Featured_Page extends WP_Widget {
             <?php wp_dropdown_pages( array( 'name' => $this->get_field_name( 'page_id' ), 'selected' => $instance['page_id'] ) ); ?>
         </p>
 
+
+        <p>
+            <input id="<?php echo $this->get_field_id( 'link_image' ); ?>" type="checkbox" name="<?php echo $this->get_field_name( 'link_image' ); ?>" value="1"<?php checked( $instance['link_image'] ); ?> />
+            <label for="<?php echo $this->get_field_id( 'link_image' ); ?>"><?php _e( 'Link to page', 'genesis' ); ?></label>
+        </p>      
+          
         <hr class="div" />
 
         <p>
@@ -358,7 +382,8 @@ class Yogg_Featured_Page extends WP_Widget {
                     <div id="" class="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">
                         %s
                     </div>
-                    <input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster." />
+                    <input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster" />
+                    <input style="width:150px;margin:10px auto; auto;display:block;" type="button" class="yogg-vargangrepp-button-remove button" value="Remove monster" />
                     <input type="hidden" name="%s" class="vargangrepp-id" value="%s" />     
                 </div>',
                 $this->get_field_id( 'id' ),

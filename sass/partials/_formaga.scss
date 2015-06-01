@@ -2,7 +2,7 @@
 #formaga {
 	clear:both;
 	background:$tertiary;
-	padding:3rem 0;
+	//padding:3rem 0;
 	@include pie-clearfix;
 }
 
@@ -19,13 +19,17 @@
 	>div {
 		text-align:center;
 		@include span(5 of 10);
+
+		&:last-child {
+			float:none;
+		}
+
 		@include breakpoint($country) {
 			@include span(2 of 10);
 		}
 		
 	}
 }
-
 
 
 #formaga-bottom {
@@ -76,4 +80,21 @@ body.page-template-page-templatespage-formaga-php {
 		
 	}
 	
+}
+
+
+body.home {
+
+	#formaga-top {
+		padding:3rem 0;
+		
+		>div {
+
+			&:last-child {
+				float:none;
+				margin:0 auto;
+			}
+		}
+	}	
+
 }

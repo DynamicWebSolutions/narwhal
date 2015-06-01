@@ -2,10 +2,15 @@ jQuery(document).ready(function($){
 
   var vargangrepp_frame;
 
-  $('.vargangrepp-metabox .yogg-vargangrepp-button').click(function(e) {
+  $('body').click(function(e) {
     var $this, preview, idField;
 
-    $this    = $(this);
+    $this = $(e.target);
+
+    if (! $this.is('.vargangrepp-metabox .yogg-vargangrepp-button')) {
+      return false;
+    }
+
     preview  = $this.parent().find('.vargangrepp-preview');
     idField  = $this.parent().find('.vargangrepp-id');
 
@@ -53,6 +58,26 @@ jQuery(document).ready(function($){
 
     //Open the uploader dialog
     vargangrepp_frame.open();
+
+  });
+
+
+  $('body').click(function(e) {
+    var $this, preview, idField;
+
+    $this = $(e.target);
+
+    if (! $this.is('.vargangrepp-metabox .yogg-vargangrepp-button-remove')) {
+      return false;
+    }
+
+    preview  = $this.parent().find('.vargangrepp-preview');
+    idField  = $this.parent().find('.vargangrepp-id');
+
+    preview.html('');
+    idField.val(null);
+
+    e.preventDefault();
 
   });
 });

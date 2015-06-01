@@ -8,6 +8,10 @@
 		color:$primary;
 	}
 
+	iframe {
+		width:100% !important;
+	}
+
 	aside {
 		//@include nested(12);
 		@include span(12);

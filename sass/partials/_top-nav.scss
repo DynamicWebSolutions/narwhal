@@ -42,99 +42,111 @@ nav.top-nav {
 		@include container($max-container-width);
 
 		@include breakpoint($county) {
-			display:table;
-			height:50px;
-		}
-
-		img.ajax-loader {
-			width:16px;
-			height:16px;
-			display:none;
+			display:block;
 		}
 
 
-		#telegraph-sounder {		
-			font-family: $font-bold;	
-			background:$black;
-			color:$white;
-			text-align: center;
-			display:table-caption;
-			width:100%;
-			margin:0 auto 0.5rem auto;
-
-			@include breakpoint($continent) {
-				display:table-cell;
-				margin:0 auto;
-				width:auto;
-				padding:0.5rem 0;
-				vertical-align: middle;
-				width:15%;
-			}			
+		.wpcf7-response-output {
+			padding: 0.2rem 1rem;
 		}	
 
-		#telegraph-message {
-			width:90%;
-			display:table-cell;
-			vertical-align: middle;
 
-			@include breakpoint($continent) {
-				width:80%;
-			}					
+		#telegraph {
+			display:table;
+			height:50px;
+		
 
-			label,
-			span {
-				display: table-cell;
-				padding:0 1rem;
+			#telegraph-sounder {		
+				font-family: $font-bold;	
+				background:$black;
+				color:$white;
+				text-align: center;
+				display:table-caption;
+				width:100%;
+				margin:0 auto 0.5rem auto;
+
+				@include breakpoint($continent) {
+					display:table-cell;
+					margin:0 auto;
+					width:auto;
+					padding:0.5rem 0;
+					vertical-align: middle;
+					width:15%;
+				}			
+			}	
+
+			#telegraph-message {
+				width:90%;
+				display:table-cell;
 				vertical-align: middle;
-			}
 
-			label {
-				width:8%;
-			}
+				@include breakpoint($continent) {
+					width:80%;
+				}					
 
-			span {
-				width:25%;
-				@include transition-property(width);
-				@include transition-duration(0.6s);
-				@include transition-timing-function(ease-in);				
-
-				&.active {
-					width:40%;
+				label,
+				span {
+					display: table-cell;
+					padding:0 1rem;
+					vertical-align: middle;
 				}
 
-				&.inactive {
-					width:10%;
-				}				
+				label {
+					width:8%;
+				}
+
+				span {
+					width:25%;
+					@include transition-property(width);
+					@include transition-duration(0.6s);
+					@include transition-timing-function(ease-in);				
+
+					&.active {
+						width:40%;
+					}
+
+					&.inactive {
+						width:10%;
+					}	
+
+					&.wpcf7-not-valid-tip {
+						display:none;
+					}			
+				}
+
+				input {
+					border:none;
+					height:36px;
+					width:100%;
+					@include border-radius();		
+
+					&.wpcf7-not-valid {
+						border:1px solid red;
+					}						
+				}		
 			}
 
-			input {
-				border:none;
+			input[type="submit"] {
+				display:table-cell;
+				vertical-align: middle;
+				font-family: $font-normal;	
+				text-transform: uppercase;
+				background: $primary;
 				height:36px;
-				width:100%;
-				@include border-radius();			
-			}		
-		}
+				color: $secondary;
+				letter-spacing: .1rem;
+				text-align:center;
+				position: relative;
+				top:5px; 
+				border:none;
+				padding:0 1rem;
+				font-size: 1rem;
 
-		input[type="submit"] {
-			display:table-cell;
-			vertical-align: middle;
-			font-family: $font-normal;	
-			text-transform: uppercase;
-			background: $primary;
-			height:36px;
-			color: $secondary;
-			letter-spacing: .1rem;
-			text-align:center;
-			position: relative;
-			top:5px; 
-			border:none;
-			padding:0 1rem;
-			font-size: 1rem;
-
-			@include border-radius();
+				@include border-radius();
+			}
 		}
 	}
-	
+		
 
 	ul.menu {
 		@include container($max-container-width);	

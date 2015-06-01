@@ -1,0 +1,66 @@
+.wpcf7 {
+
+	.screen-reader-response {
+		display: none;
+	}
+
+
+
+	form {
+
+		.wpcf7-not-valid-tip {
+			display:none;
+		}
+
+
+		input {
+			border:none;
+			height:36px;
+			width:100%;
+			@include border-radius();		
+
+			&.wpcf7-not-valid {
+				border:1px solid red;
+			}	
+		}		
+
+
+		textarea {
+			width:100%;
+			border: none;
+		}
+
+
+		input[type="submit"] {
+			display:table-cell;
+			vertical-align: middle;
+			font-family: $font-normal;	
+			text-transform: uppercase;
+			background: $primary;
+			height:36px;
+			color: $secondary;
+			letter-spacing: .1rem;
+			text-align:center;
+			position: relative;
+			top:5px; 
+			border:none;
+			padding:0 1rem;
+			font-size: 1rem;
+
+			@include border-radius();
+		}		
+
+
+		.wpcf7-response-output {
+			margin-top:1rem;
+		}	
+
+
+		img.ajax-loader {
+			width:16px;
+			height:16px;
+			display:none;
+		}	
+
+	}
+}

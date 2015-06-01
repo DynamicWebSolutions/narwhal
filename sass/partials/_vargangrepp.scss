@@ -17,7 +17,12 @@
 		}
 
 		img {
-			width:600px;
+			@include span(12);
 			height: auto;
+
+			@include breakpoint($country) {
+				@include span(8);
+				@include push(2);
+			}					
 		}
 }

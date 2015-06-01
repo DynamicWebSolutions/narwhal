@@ -55,7 +55,7 @@ function yogg_next_prev_article_links() {
 			echo sprintf(
 				'<a class="link-next" href="%s" title="%s">
 					<span>Next &#187;</span>
-					<p>Keep &apos;em coming!</p>
+					<p>Keep &rsquo;em coming!</p>
 				</a>',
 				get_permalink($previous),
 				$previous->post_title

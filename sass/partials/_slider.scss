@@ -12,16 +12,24 @@
 			text-align:center;
 			background:none;
 			top:10%;
+			@include transition();
 			
 			@include breakpoint($county) {
 				top:20%;
 			}						
 			@include breakpoint($country) {
-				top:40%;
+				top:30%;
 			}			
 
 			h2 {
-				padding-bottom: 1rem;
+				font-size:2rem;
+
+				@include breakpoint($county) {
+					font-size:3rem;
+				}						
+				@include breakpoint($country) {
+					font-size: "#{beta}px";
+				}					
 			}
 		}
 

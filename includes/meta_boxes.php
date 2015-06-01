@@ -55,7 +55,9 @@ function yogg_vargangrepp_do_meta_box( $post ) {
 			<div class="vargangrepp-preview" style="width:150px;height:150px; margin:1em auto;border:1px dashed #cccccc;">
 				%s
 			</div>
-			<input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster." />
+			<input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster" />
+			<input style="width:150px;margin:10px auto; auto;display:block;" type="button" class="yogg-vargangrepp-button-remove button" value="Remove monster" />
+
 			<input type="hidden" name="yogg_vargangrepp_id" class="vargangrepp-id" value="%s" />		
 			<p><label for="yogg_vargangrepp_text"><b>This message will be dispalyed underneath the monster.</b></label></p>			
 			<p><input class="large-text" type="text" id="yogg_subst" name="yogg_vargangrepp_description" value="%s" /></p>	

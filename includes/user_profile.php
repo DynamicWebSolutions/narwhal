@@ -20,8 +20,9 @@ function yogg_user_avatar($user) {
 
 	echo '</div>';
 
-  echo '<input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button" class="button" value="Choose your monster." />';
+  echo '<input style="width:150px;margin:0 auto;display:block;" type="button" class="yogg-vargangrepp-button button" value="Choose your monster." />';
   echo '<input type="hidden" class="vargangrepp-id" name="yogg_vargangrepp_id" value="' . esc_attr( $avatar ) . '" />';	
+  echo '<input style="width:150px;margin:10px auto; auto;display:block;" type="button" class="yogg-vargangrepp-button-remove button" value="Remove monster" />';
 	echo '</div>';
 }
 

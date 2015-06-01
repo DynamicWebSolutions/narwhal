@@ -65,7 +65,7 @@ function yogg_remove_genesis_page_templates( $page_templates ) {
 **/ 
 add_image_size('archive-grid', 200, 200, true);
 add_image_size('page-top', 1150, 300, true);
-add_image_size('slider', 1150, 500, true);
+add_image_size('slider', 1150, 300, true);
 add_image_size('portrait', 400, 600, true);
 add_image_size('vargangrepp', 600, 300, false);
 
@@ -109,15 +109,15 @@ function yogg_admin_js() {
 add_action('wp_footer', 'yogg_fitvid', 100);
 function yogg_fitvid() {
 
-if(is_singular(array('yogg_work'))) {
+    if(is_singular(array('yogg_work'))) {
 
-    echo '
-        <script>
-          jQuery(document).ready(function(){
-            jQuery("article").fitVids();
-          });
-        </script>';
-}
+        echo '
+            <script>
+              jQuery(document).ready(function(){
+                jQuery("article").fitVids();
+              });
+            </script>';
+    }
 
 
 }
@@ -236,7 +236,7 @@ function yogg_footer_creds_text( $creds ) {
     $year = date("Y");
     $url = get_bloginfo('url');
     $creds = '<span class="creds">117 North 20th Street / Richmond, VA 23223</span>';
-    $creds .= "<span class='creds'>&copy; {$year} <a href='{$url}' title='Land of yogg'>yogg</a> All rights reserved";
+    $creds .= "<span class='creds'> &copy;{$year} <a href='{$url}' title='Land of yogg'>yogg</a> All rights reserved";
     
     return $creds;
 }
