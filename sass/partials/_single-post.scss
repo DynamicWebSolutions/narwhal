@@ -2,23 +2,34 @@ body.single-post {
 
 	section {
 		position:relative;
+		text-align:center;
 
 		>h2 {
-			text-align:center;
-			padding:3rem;
+			padding:1rem 3rem;
+			
+			@include breakpoint($county) {			
+				padding:3rem;
+			}
 		}
 		
 		>a {
-			position: absolute;
-			top:45%;
-			right:5%;
+
+			@include breakpoint($county) {
+				position: absolute;
+				top:45%;
+				right:5%;
+			}				
+
 		}
 	}
 
 	.site-inner {
 		background: $tertiary;
-		padding:3rem;
+		padding:3rem 0.5rem;
 
+		@include breakpoint($county) {
+			padding:3rem;
+		}
 
 		main {
 			background: $white;
@@ -28,7 +39,11 @@ body.single-post {
 			.entry-title,
 			.entry-content,
 			.entry-footer {
-				padding:1rem 3rem;
+				padding:1rem 0.5rem;
+
+				@include breakpoint($county) {
+					padding:1rem 3rem;
+				}				
 			}
 
 			footer {

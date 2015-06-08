@@ -196,7 +196,10 @@ body.home {
 	.middle-nav {
 		li {
 			@include span(1 of 1);
+			clear:both; //mobile safari bug
+
 			@include breakpoint($country) {
+				clear:none;
 				@include span(1 of 4 inside);
 				margin:0;
 			}				

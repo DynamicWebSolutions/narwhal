@@ -65,7 +65,7 @@ function yogg_remove_genesis_page_templates( $page_templates ) {
 **/ 
 add_image_size('archive-grid', 200, 200, true);
 add_image_size('page-top', 1150, 300, true);
-add_image_size('slider', 1150, 300, true);
+add_image_size('slider', 1150, 500, true);
 add_image_size('portrait', 400, 600, true);
 add_image_size('vargangrepp', 600, 300, false);
 

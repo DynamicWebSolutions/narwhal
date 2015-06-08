@@ -8,12 +8,16 @@
 	@include pie-clearfix;
 
 	p {
+		padding:1rem 0;
 		margin:0 auto;
 		width:75%;
+		clear:both;
 	}
 
+	h3,
 	a {
 		color:$white;
+		clear:both;
 	}
 
 	img {
