@@ -136,6 +136,14 @@ function yogg_viewport() {
 }
 
 
+add_action('wp_head', 'yogg_ie_styles');
+function yogg_ie_styles() {
+    echo "\n".'<!--[if lt IE 9]>';
+        echo '<link href="'.get_stylesheet_directory_uri().'/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />';
+    echo '<![endif]-->'."\n";  
+}
+
+
 add_filter('body_class', 'yogg_menu_item_count');
 add_action('genesis_before', 'yogg_sitewide_mods');
 function yogg_sitewide_mods() {

@@ -9,200 +9,37 @@
 	  position: relative;
 		@include pie-clearfix;
 		@include container($max-container-width);
-
+		@include breakpoint($country) {
+		  @include display-flex;
+		  @include flex-direction(row);
+		  @include flex-wrap(wrap);
+		  @include align-items(center);
+		}		
 
 		li {
 			text-align:center;
 			border-bottom: 1px solid $tertiary;
 			padding:1rem 0;
-			min-height:50px;
-			display: table;
+			@include flex-grow(1);
+			@include breakpoint($country) {
+				border-right: 1px solid $tertiary;
+				border-bottom: none;
+			}		
 
 			a {
-				display: table-cell;
-				vertical-align: middle;
-			}
+				@extend .delta;
+			}	
 
 			&.current_page_item a {
 				color:$gray;
 				font-style: italic;
-			}
-
-			@include breakpoint($country) {
-				padding:0;
-				border-right: 1px solid $tertiary;
-				border-bottom: none;
-			}
-
-			a {
-				@extend .delta;
-			}
-
+			}					
+			
 			&:last-child {		
 				border-right:none;
 				border-bottom:none;
 			}		
-		}		
-	}
-}
 
-
-body.children-0 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(10 of 10);
-				margin:0;
-			}				
 		}
 	}
-}
-
-body.children-1 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 2 inside);
-				margin:0;
-			}				
-		}
-	}	
-}
-
-body.children-2 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 3 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-body.children-3 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 4 inside);
-				margin:0;
-			}				
-		}
-	}			
-}
-
-body.children-4 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 5 inside);
-				margin:0;
-			}				
-		}
-	}	
-}
-
-body.children-5 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 6 inside);
-				margin:0;
-			}				
-		}
-	}	
-}
-
-body.children-6 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 7 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-body.children-7 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 8 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-body.children-8 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 9 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-body.children-9 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 10 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-body.children-10 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 11 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-body.children-11 {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			@include breakpoint($country) {
-				@include span(1 of 12 inside);
-				margin:0;
-			}				
-		}
-	}		
-}
-
-
-body.home {
-	.middle-nav {
-		li {
-			@include span(1 of 1);
-			clear:both; //mobile safari bug
-
-			@include breakpoint($country) {
-				clear:none;
-				@include span(1 of 4 inside);
-				margin:0;
-			}				
-		}
-	}		
 }
